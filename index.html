@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPG_ver2.0</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game">
+    <div class="header">
+      <span class="game-title">Dragon Quest</span>
+      <div class="header-buttons">
+        <button class="header-button" id="button-5">Character</button>
+        <button class="header-button" id="button-6">Skills</button>
+        <button class="header-button" id="button-7">Items</button>
+        <button class="header-button" id="button-8">Equipment</button>
+      </div>
+    </div>
+    <div class="body-content">
+      <div class="userpanel">
+        <div class="avatarcard flex-column">
+          <div class="avatar-descriptions">
+          <div class="avatar-image">
+
+          </div>
+          <div class="avatar-description">
+            <span id="avatar-name">Juan</span>
+            <span class="avatar-class">Trainee</span>
+            <span class="avatar-title">Newb</span>
+          </div>
+          </div>
+          <div class="avatar-att flex-column">
+              <p>STR :<strong><span id="baseStatTextStr"></span></strong> + <strong><span id="inventoryStatStr"></span> </strong></p>
+              <p>MGK :<strong><span id="baseStatTextMgk"></span></strong> + <strong><span id="inventoryStatMgk"></span> </strong></p>
+              <p>SPD :<strong><span id="baseStatTextSpd"></span></strong> + <strong><span id="inventoryStatSpd"></span> </strong></p>
+              <p>DEX :<strong><span id="baseStatTextAgi"></span></strong> + <strong><span id="inventoryStatAgi"></span> </strong></p>
+              <p>DEF :<strong><span id="baseStatTextDef"></span></strong> + <strong><span id="inventoryStatDef"></span> </strong></p>
+              <p>RES : <strong><span id="baseStatTextRes"></span></strong> + <strong><span id="inventoryStatRes"></span> </strong></p>            
+              <p>END :<strong><span id="baseStatTextHp"></span></strong> + <strong><span id="inventoryStatHp"></span> </strong></p>
+          </div>
+          <div class="avatar-hax flex-column">
+            <div class="box"><p>SKILLS : <strong><span id="skillsSetsText"></span></strong></p></div>
+            <div class="box"><p>BLESSINGS : <strong><span id="blessingText"></span></strong></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="monitorpanel">
+        monitor
+      </div>
+      <div class="textpanel">
+        text
+      </div>
+      <div class="modalpanel">
+        <div class="modal-content">
+          modal-box-texts
+        </div>
+      </div>
+      <div class="inbattle">
+        <div class="teamsection">
+          <div class="card">
+            <div class="img">
+              a
+            </div>
+            <p><span class="name-value-b">Jimbo</span></p>
+            <p>hp:<span class="hp-b">100</span></p>
+            <p>mana:<span class="mana-b">100</span></p>
+          </div>
+          <div class="card">
+            <div class="img">
+              a
+            </div>
+            <p><span class="name-value-b">Jimbo</span></p>
+            <p>hp:<span class="hp-b">100</span></p>
+            <p>mana:<span class="mana-b">100</span></p>
+          </div>
+          <div class="card">
+            <div class="img">
+              a
+            </div>
+            <p><span class="name-value-b">Jimbo</span></p>
+            <p>hp:<span class="hp-b">100</span></p>
+            <p>mana:<span class="mana-b">100</span></p>
+          </div>
+        </div>
+        <div class="monstersection">
+          <div class="card">
+            <div class="img">
+              a
+            </div>
+            <p><span class="name-value-b">Jimbo</span></p>
+            <p>hp:<span class="hp-b">100</span></p>
+            <p>mana:<span class="mana-b">100</span></p>
+          </div>
+          <div class="card">
+            <div class="img">
+              a
+            </div>
+            <p><span class="name-value-b">Jimbo</span></p>
+            <p>hp:<span class="hp-b">100</span></p>
+            <p>mana:<span class="mana-b">100</span></p>
+          </div>
+          <div class="card">
+            <div class="img">
+              a
+            </div>
+            <p><span class="name-value-b">Jimbo</span></p>
+            <p>hp:<span class="hp-b">100</span></p>
+            <p>mana:<span class="mana-b">100</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="displaypanel">
+      <div class="stats">
+        <p class="stat">Lv: <strong><span id="lvlText">0</span></strong></p>
+        <p class="stat">Hp: <strong><span id="hpText">100</span></strong></p>
+        <p class="stat">Mana: <strong><span id="manaText">100</span></strong></p>
+        <p class="stat">Gold: <strong><span id="goldText">100</span></strong></p>
+      </div>
+      <div class="controls">
+        <button class="control-button" id="button-1">Start Game</button>
+        <button class="control-button" id="button-2">Start Game</button>
+        <button class="control-button" id="button-3">Start Game</button>
+        <button class="control-button" id="button-4">Start Game</button>
+      </div>
+    </div>
+    <div class="loader">
+      LOADING . . .
+      <div class="progress">
+        
+      </div>
+    </div>
+    <div class="characterCreationPanel modal-1 flex-row" id="characterCreationPanel">
+      <div class="character-creation-display">
+        <div class="img-creation" id="img-creation">
+          <img src="./images/female-mage.png" alt="">
+        </div>
+      </div>
+      <div class="creationStatBox flex-column">
+        <div class="characternamebox flex-column">
+          <h1>Hello advaenturer!</h1>
+          <p>Insert character name:</p>
+          <input type="text" id="characterNameInput" title="Enter your character's name" />
+        </div>
+        <span class="creationMsg"></span>
+        <form class="characterForm flex-column" id="characterForm">
+          <div>
+            <label for="gender">Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female" checked>
+            <label for="female">Female</label>
+          </div>
+          <div>
+            <label for="job">Class:</label>
+            <select id="job" name="job">
+                <option value="warrior">Warrior</option>
+                <option value="mage" selected>Mage</option>
+                <option value="rogue">Rogue</option>
+                <option value="tank">Tank</option>
+            </select>
+          </div>
+          <div>
+            <label for="skill">Skill:</label>
+            <select id="skill" name="skill">
+                <option value="fireball" selected>Fireball</option>
+                <option value="backstab">Backstab</option>
+                <option value="heal">Heal</option>
+            </select>
+          </div>
+          <div>
+            <label for="passive">Passive:</label>
+            <select id="passive" name="passive">
+                <option value="berserk">Berserk</option>
+                <option value="stealth">Stealth</option>
+                <option value="mana-regen" selected>Mana Regeneration</option>
+            </select>
+          </div>
+            <button type="submit">Create Character</button>
+          </form>
+      </div>
+    </div>
+    <div class="title-screen modal-1 flex-column" id="title-screen">
+      <div class="cover-image">
+
+      </div>
+      <div class="button-box flex-row title-buttons" >
+        <button>Start New Game</button>
+        <button>Load Game</button>
+        <button>Tutorial</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="locations.js"></script>
+  <script src="index.js"></script>
+
+</body>
+</html>

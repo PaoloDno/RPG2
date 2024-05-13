@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Bar</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    #health-bar {
+      width: 300px;
+      height: 50px;
+      border: 1px solid black;
+    }
+    #health-rect {
+      fill: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="health-bar"></div>
+
+  <script>
+    // Health data
+    const maxHealth = 100;
+    let currentHealth = 80; // Example current health value
+
+    // Create SVG element
+    const svg = d3.select("#health-bar")
+      .append("svg")
+      .attr("width", "100%")
+      .attr("height", "100%");
+
+    // Create health bar rectangle
+    const healthRect = svg.append("rect")
+      .attr("id", "health-rect")
+      .attr("width", (currentHealth / maxHealth) * 100 + "%")
+      .attr("height", "100%");
+
+    // Function to update health bar
+    function updateHealthBar(health) {
+      healthRect.attr("width", (health / maxHealth) * 100 + "%");
+    }
+
+    // Example usage: update health bar with new health value
+    // You can call this function whenever the health changes
+    updateHealthBar(currentHealth);
+  </script>
+</body>
+</html>
