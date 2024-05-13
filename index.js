@@ -1,4 +1,61 @@
-/*window.addEventListener("load", function () {
+window.addEventListener("load", function() {
+  console.log("Page loaded!");
+  if(character === null){
+    runLoad("characterCreationPanel","flex");
+  }
+});
+
+const character = null;
+const runLoad = (id, display) => {
+    let loader = document.querySelector("#loader");
+    loader.style.display = "flex";
+    setTimeout(async () => {
+        loader.style.display = "none";
+        document.querySelector(`#${id}`).style.display = `${display}`;
+    }, 1000);
+}
+
+/*
+
+the fucking failed trial i initiating values
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const runLoad = (id, display) => {
+    let loader = document.querySelector(".loader");
+    loader.style.display = "flex";
+    setTimeout(async () => {
+        loader.style.display = "none";
+        document.querySelector(`#${id}`).style.display = `${display}`;
+    }, 1250);
+    console.log("RPAPA");
+  
+  const createCharacterButton = document.getElementById('createCharacterButton');
+  const selectedCharacterButton = document.getElementById('selectedCharacterButton');
+  createCharacterButton.addEventListener('click', function() {
+      // Hide the character creation panel
+      runLoad('title-screen', 'none')
+      .then(runLoad('characterCreationPanel', 'flex'));
+  });
+  selectedCharacterButton.addEventListener('click', function() {
+    // Hide the character creation panel
+    characterCreationPanel.style.display = 'none';
+});
+}});
+
+const runLoad = (id, display) => {
+  let loader = document.querySelector(".loader");
+  loader.style.display = "flex";
+  setTimeout(async () => {
+      loader.style.display = "none";
+      document.querySelector(`#${id}`).style.display = `${display}`;
+  }, 1250);
+
+
+  runload('title-screen', 'flex');
+
+window.addEventListener("load", function () {
   if (player === null) {
       runLoad("character-creation", "flex");
   } else {
@@ -7,79 +64,8 @@
   }
 });
 
-  const runLoad = (id, display) => {
-    let loader = document.querySelector(".loader");
-    loader.style.display = "flex";
-    setTimeout(async () => {
-        loader.style.display = "none";
-        document.querySelector(`#${id}`).style.display = `${display}`;
-    }, 1250);
+  
 };
 */
-
-// JavaScript
-function updateCharacterImage(event) {
-  event.preventDefault();
-
-  const selectedGender = document.querySelector('input[name="gender"]:checked').value;
-  const selectedJob = document.getElementById('job').value; // Corrected 'class' to 'job'
-  const selectedSkill = document.getElementById('skill').value;
-  const selectedPassive = document.getElementById('passive').value;
-  const selectedcharacterNameInput = document.getElementById('characterNameInput').value;
-  const characterImageDiv = document.getElementById('img-creation');
-  characterImageDiv.innerHTML = ''; // Clear previous image
-
-  const img = document.createElement('img');
-  let src = '';
-
-  // Check gender and set image source accordingly
-  if (selectedGender === 'male') {
-    switch (selectedJob) {
-      case 'warrior':
-        src = `images/male-warrior.png`;
-        break;
-      case 'mage':
-        src = `images/male-mage.png`;
-        break;
-      case 'rogue': 
-        src = `images/male-rogue.png`; 
-        break;
-      case 'tank':
-        src = `images/male-tank.png`; 
-        break;
-      
-      default:
-      
-        src = `images/male-warrior.png`;
-        break;
-    }
-  } else if (selectedGender === 'female') {
-    switch (selectedJob) {
-      case 'warrior':
-        src = `images/female-warrior.png`;
-        break;
-      case 'mage':
-        src = `images/female-mage.png`;
-        break;
-      case 'rogue': 
-        src = `images/female-rogue.png`; 
-        break;
-      case 'tank':
-        src = `images/female-tank.png`; 
-        break;
-      default:
-        src = `images/female-mage.png`;
-        break;
-    }
-  }
-
-  img.src = src;
-  img.alt = 'Character Image';
-  characterImageDiv.appendChild(img);
-  console.log(selectedGender, selectedJob, selectedcharacterNameInput, selectedPassive, selectedSkill);
-}
-
-document.getElementById('characterForm').addEventListener('change', updateCharacterImage);
-
 
 

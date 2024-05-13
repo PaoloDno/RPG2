@@ -8,6 +8,12 @@
 </head>
 <body>
   <div class="game">
+    <div class="loader" id="loader">
+      LOADING . . .
+      <div class="progress">
+        
+      </div>
+    </div>
     <div class="header">
       <span class="game-title">Dragon Quest</span>
       <div class="header-buttons">
@@ -125,12 +131,7 @@
         <button class="control-button" id="button-4">Start Game</button>
       </div>
     </div>
-    <div class="loader">
-      LOADING . . .
-      <div class="progress">
-        
-      </div>
-    </div>
+    
     <div class="characterCreationPanel modal-1 flex-row" id="characterCreationPanel">
       <div class="character-creation-display">
         <div class="img-creation" id="img-creation">
@@ -177,16 +178,16 @@
                 <option value="mana-regen" selected>Mana Regeneration</option>
             </select>
           </div>
-            <button type="submit">Create Character</button>
+            <button type="button" id="selectedCharacterButton">Create Character</button>
           </form>
       </div>
     </div>
     <div class="title-screen modal-1 flex-column" id="title-screen">
       <div class="cover-image">
-
+        <img src="./images/misc/cover.jpg" alt="Dragon quest title" id="game-title-image">
       </div>
       <div class="button-box flex-row title-buttons" >
-        <button>Start New Game</button>
+        <button id="createCharacterButton">Start New Game</button>
         <button>Load Game</button>
         <button>Tutorial</button>
       </div>
@@ -195,6 +196,7 @@
 
   <script src="locations.js"></script>
   <script src="index.js"></script>
+  <script src="creationpanel.js"></script>
 
 </body>
 </html>
