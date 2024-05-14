@@ -1,4 +1,5 @@
 window.addEventListener("load", function() {
+  
   console.log("Page loaded!");
   console.log(character)
   if(character === null){
@@ -8,8 +9,10 @@ window.addEventListener("load", function() {
     target.style.display = "flex";
   }
 
+  
 //title screen loaded
-
+//other dom const
+  
   const screenMessage = document.querySelector("#screen-message");
 
   document.querySelector("#createCharacterButton").addEventListener("click", function () {
@@ -296,8 +299,15 @@ window.addEventListener("load", function() {
     character.stats = calc(character.baseStats, character.equippedStats, character.blessingStats);
     console.log(character);
     saveData();
-          
+    runLoad("game-modal", "flex");
+    characterCreationPanel.style.display = "none";
+    nextStory(storyProgress[0]);
   });
+
+  
+
+
+
 });
 const runLoad = (id, display) => {
     let loader = document.querySelector("#loader");
@@ -330,3 +340,120 @@ const calc = (bas, eqp, bls) => {
   // Updating the newbase stats
   return newstat;
 };   
+
+const gameModal = document.querySelector("#game-modal");
+const gameNotif = document.querySelector("#game-notif");
+const notifButton = document.querySelector("#button-notif");
+const notifTitle = document.querySelector("#notif-title");
+const curtain = document.querySelector("#curtain");
+
+let storyProgress = [
+  {
+    storyTitle: "Prolouge",
+    storyText: "The goddess seems to laugh at ur fate",
+    buttonText: "(☉_☉)",
+    buttonFunc: progress2,
+    bgimg: './images/misc/goddess2.jpg'
+  },
+  {
+    storyTitle: "Prolouge",
+    storyText: "The goddess also giving you one legendary item you bring to the new world!",
+    buttonText: "I choose YOU",
+    buttonFunc: progress3,
+    bgimg: './images/misc/goddess3.jpg'
+  },
+  {
+    storyTitle: "Prolouge",
+    storyText: "...",
+    buttonText: "...",
+    buttonFunc: progress4,
+    bgimg: './images/misc/goddess3.jpg'
+  },
+  {
+    storyTitle: "Prolouge",
+    storyText: `"because im such a good and benevolent good you are given one legendary item to take in your next life`,
+    buttonText: "...",
+    buttonFunc: progress5,
+    bgimg: './images/misc/goddess3.jpg'
+  },
+  {
+    storyTitle: "Prolouge",
+    storyText: `"You can pick any legendary item you want since you'll bla.. bla.. bla.."`,
+    buttonText: "... I.. I choose you",
+    buttonFunc: progress6,
+    bgimg: './images/misc/goddess5.jpg'
+  },
+  {
+    storyTitle: "Prolouge",
+    storyText: `"No way that can work thats not allowed.. probably.."`,
+    buttonText: "...",
+    buttonFunc: progress7,
+    bgimg: './images/misc/goddess5.jpg'
+  },
+  {
+    storyTitle: "Prolouge",
+    storyText: `"Aaaahhhh"`,
+    buttonText: "...",
+    buttonFunc: progress8,
+    bgimg: './images/misc/goddess6.jpg'
+  },
+  {
+    storyTitle: "Prolouge",
+    storyText: `You have been reincarnated`,
+    buttonText: "...",
+    buttonFunc: progress9,
+    bgimg: './images/misc/goddess6.jpg'
+  },
+  {
+    storyTitle: "Prolouge",
+    storyText: `Aqua has been added to your party`,
+    buttonText: "...",
+    buttonFunc: closeStory,
+    bgimg: './images/misc/goddess4.jpg'
+  }
+]
+
+function nextStory(storyProgress) {
+  console.log("story progressing")
+  loadStory();
+  gameModal.style.backgroundImage = `url("${storyProgress.bgimg}"`;
+  notifButton.innerText = storyProgress.buttonText;
+  notifButton.onclick = storyProgress.buttonFunc;
+  notifTitle.innerText = storyProgress.storyTitle;
+  gameNotif.innerText = storyProgress.storyText;
+}
+function loadStory() {
+  curtain.style.display = "flex";
+  setTimeout(async () => {
+    curtain.style.display = "none";
+}, 1100);
+}
+
+function progress2() {
+
+  nextStory(storyProgress[2]);
+}
+function progress3() {
+  nextStory(storyProgress[3]);
+}
+function progress4() {
+  nextStory(storyProgress[3]);
+}
+function progress5() {
+  nextStory(storyProgress[4]);
+}
+function progress6() {
+  nextStory(storyProgress[5]);
+}
+function progress7() {
+  nextStory(storyProgress[6]);
+}
+function progress8() {
+  nextStory(storyProgress[7]);
+}
+function progress9() {
+  nextStory(storyProgress[8]);
+}
+function closeStory() {
+  gameModal.style.display = "none";
+}

@@ -133,6 +133,7 @@
     </div>
     
     <div class="characterCreationPanel modal-1 flex-row" id="characterCreationPanel">
+      <div class="characterPanelBox center flex-row">
       <div class="character-creation-display">
         <div class="img-creation" id="img-creation">
           <img src="./images/female-mage.png" alt="">
@@ -148,14 +149,16 @@
           
           
           <div>
-            <label for="gender">Gender:</label>
+            <label for="gender">And you are a?</label>
+            <br></br>
             <input type="radio" id="male" name="gender" value="male">
             <label for="male">Male</label>
+            <br></br>
             <input type="radio" id="female" name="gender" value="female" checked>
             <label for="female">Female</label>
           </div>
           <div>
-            <label for="job">Class:</label>
+            <label for="job">And you would like to be a?</label>
             <select id="job" name="job">
                 <option value="warrior">Warrior</option>
                 <option value="mage" selected>Mage</option>
@@ -164,7 +167,8 @@
             </select>
           </div>
           <div>
-            <label for="skill">Skill:</label>
+            <label for="skill">Bunos Skill:</label>
+            <br><br>
             <select id="skill" name="skill">
                 <option value="fireball" selected>Fireball</option>
                 <option value="backstab">Backstab</option>
@@ -172,7 +176,7 @@
             </select>
           </div>
           <div>
-            <label for="passive">Passive:</label>
+            <label for="passive">Blessings:</label>
             <select id="passive" name="passive">
                 <option value="fire blessing">Fire Goddess</option>
                 <option value="wind-blessing">Wind Goddess</option>
@@ -182,6 +186,7 @@
           </div>
             <button id="create-character-button" class="bttn">Create Character</button>
         </div>
+      </div>
       </div>
     </div>
     <div class="title-screen modal-1 flex-column" id="title-screen">
@@ -199,7 +204,8 @@
       <div id="name-form">
         <div id="name-form-div">
           <h1>Hello advaenturer!</h1>
-          <p>the goddess ask your name:</p>
+          <p>You are about to be reborn!</p>
+          <p>the goddess ask for your name:</p>
           <input type="text" id="characterNameInput" title="Enter your character's name" />
           <button class="bttn" id="submit-item-button" type="button">Thats my name</button>
           <span id="name-alert"></span>
@@ -207,6 +213,19 @@
         <span id="nameAlertMsg"></span>
       </div>
     </div>
+  </div>
+  <div class="game-modal modal-1 flex-column center" id="game-modal">
+    <div class="button-box game-modal-box flex-column center">
+      <div id="notif-title"></div>
+      <div class="game-notif" id="game-notif">
+
+      </div>
+      <button class=".bttn notif-button" id="button-notif">ok</button>
+    </div>
+    
+  </div>
+  <div id="curtain" class="modal-1">
+
   </div>
   <script src="character.js"></script>
   <script src="locations.js"></script>
