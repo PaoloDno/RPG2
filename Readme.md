@@ -14,3 +14,6 @@ and because I love RPG games
 ### (5/13/2024)
 - Working on the idea of the script
 - decided that data will be handle on localstorage
+### (5/14/2024)
+- Title screen added
+- Storyline planning

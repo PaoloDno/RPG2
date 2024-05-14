@@ -18,7 +18,7 @@
       <span class="game-title">Dragon Quest</span>
       <div class="header-buttons">
         <button class="header-button" id="button-5">Character</button>
-        <button class="header-button" id="button-6">Skills</button>
+        <button class="header-button" id="button-6">Companion</button>
         <button class="header-button" id="button-7">Items</button>
         <button class="header-button" id="button-8">Equipment</button>
       </div>
@@ -140,12 +140,13 @@
       </div>
       <div class="creationStatBox flex-column">
         <div class="characternamebox flex-column">
-          <h1>Hello advaenturer!</h1>
-          <p>Insert character name:</p>
-          <input type="text" id="characterNameInput" title="Enter your character's name" />
+          
+        
         </div>
-        <span class="creationMsg"></span>
-        <form class="characterForm flex-column" id="characterForm">
+        <span class="creationMsg" id="creationMsg"></span>
+        <div class="characterForm flex-column" id="characterForm" >
+          
+          
           <div>
             <label for="gender">Gender:</label>
             <input type="radio" id="male" name="gender" value="male">
@@ -178,8 +179,8 @@
                 <option value="mana-regen" selected>Mana Regeneration</option>
             </select>
           </div>
-            <button type="button" id="selectedCharacterButton">Create Character</button>
-          </form>
+            <button id="create-character-button" class="bttn">Create Character</button>
+        </div>
       </div>
     </div>
     <div class="title-screen modal-1 flex-column" id="title-screen">
@@ -188,12 +189,25 @@
       </div>
       <div class="button-box flex-row title-buttons" >
         <button id="createCharacterButton">Start New Game</button>
-        <button>Load Game</button>
-        <button>Tutorial</button>
+        <button>Load-soon</button>
+        <button>Tutorial-soon</button>
+      </div>
+      <div class="title-screen-message">"<span id="screen-message">No Character!</span>"</div>
+    </div>
+    <div class="goddess-welcome-panel modal-1 flex-column" id="goddess-welcome-panel">
+      <div id="name-form">
+        <div id="name-form-div">
+          <h1>Hello advaenturer!</h1>
+          <p>the goddess ask your name:</p>
+          <input type="text" id="characterNameInput" title="Enter your character's name" />
+          <button class="bttn" id="submit-item-button" type="button">Thats my name</button>
+          <span id="name-alert"></span>
+        </div>
+        <span id="nameAlertMsg"></span>
       </div>
     </div>
   </div>
-
+  <script src="character.js"></script>
   <script src="locations.js"></script>
   <script src="index.js"></script>
   <script src="creationpanel.js"></script>
