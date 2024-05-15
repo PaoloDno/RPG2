@@ -364,6 +364,7 @@ function UpdateUIDisplay() {
   imgsrc = character.display.avatar;
   console.log(imgsrc);
   CharacterAvatarImg.src = imgsrc;
+  CharacterAvatarImg.classList.add('object-fit');
   CharacterAvatarImg.alt = "character avatar img";
   avatarImg.appendChild(CharacterAvatarImg);
   calcHpMana();
