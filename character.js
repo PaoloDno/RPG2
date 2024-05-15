@@ -28,6 +28,10 @@ const equipAttDex = document.querySelector("#equipmentStatDex");
 const equipAttDef = document.querySelector("#equipmentStatDef");
 const equipAttRes = document.querySelector("#equipmentStatRes");
 const equipAttDur = document.querySelector("#equipmentStatDur");
+//
+const skillSetsText = document.querySelector("#skillsSetsText");
+const blessingText = document.querySelector("#blessingText");
+const companionText = document.querySelector("#CompanionSpan");
 
 
 //UI bottom
@@ -276,6 +280,58 @@ function initializeHpMana(){
   saveData();
 }
 
+function NoRepeatingArr() {
+  let listedBlessing = character.blessings || [];
+  let listedSkills = character.skills || [];
+  
+  function getUnique(listedArrays){
+    if(!Array.isArray(listedArrays)){
+      return listedArrays
+    }
+    let unique = [];
+    for(const listedArray of listedArrays){
+      if(!unique.includes(listedArray)){
+        unique.push(listedArray);
+      }
+    }
+    return unique;
+  }
+  console.log(getUnique(listedBlessing));
+  character.blessings = getUnique(listedBlessing);
+  character.skills = getUnique(listedSkills);
+}
+
+function todisplayArr(){
+  console.log(character);
+  let listedBlessing = [];
+  let listedSkills = [];
+  let listedCompanion = [];
+  listedBlessing = character.blessings;
+  listedSkills = character.skills;
+  listedCompanion = character.companion;
+  function ToListInUi(Arrays) {
+    let text = "";
+    if (!(Arrays.length > 1)) {
+      text = `[${Arrays[0]}]`; // Only one item in the array
+      return text;
+    }
+  
+    for (let i = 0; i < Arrays.length; i++) {
+      if (i === Arrays.length - 1) { 
+        text += `[${Arrays[i]}]`; 
+      } else {
+        text += `[${Arrays[i]}], `;
+      }
+    }
+      return text;
+  }
+  console.log(character.skills);
+  console.log(ToListInUi(listedSkills));
+  companionText.innerText = `${ToListInUi(listedCompanion)}`;
+  blessingText.innerText = `${ToListInUi(listedBlessing)}`;
+  skillSetsText.innerText = `${ToListInUi(listedSkills)}`;
+}
+
 function UpdateUIDisplay() {
   
   avatarName.innerText = character.name;
@@ -320,4 +376,8 @@ function UpdateUIDisplay() {
   manaText.innerText = character.manapoint.mana;
   manaMaxText.innerText = character.manapoint.manaMax;
   console.log(character);
+
+  NoRepeatingArr();
+  todisplayArr();
+
 }

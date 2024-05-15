@@ -102,12 +102,13 @@
   overflow: hidden;
   gap: 10px;
   .userpanel{
-    width: 26%;
+    width: 26vw;
     height: 68vh;
     background-color: #252525;
   }
   .monitorpanel{
-    width: 69%;
+    display: flex;
+    width: 69vw;
     height: 68vh;
     background-color: #032d6b;
   }
