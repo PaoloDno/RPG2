@@ -1,6 +1,47 @@
 
 let character = JSON.parse(localStorage.getItem("charData"));
 
+//a bunch of const 
+//userpanel
+const avatarImg = document.querySelector("#avatar-image");
+const avatarName = document.querySelector("#avatar-name");
+const avatarClass = document.querySelector("#avatar-class");
+const avatarTitle = document.querySelector("#avatar-title");
+const avatarAttStr = document.querySelector("#baseStatTextStr");
+const avatarAttMgk = document.querySelector("#baseStatTextMgk");
+const avatarAttSpd = document.querySelector("#baseStatTextSpd");
+const avatarAttDex = document.querySelector("#baseStatTextDex");
+const avatarAttDef = document.querySelector("#baseStatTextDef");
+const avatarAttRes = document.querySelector("#baseStatTextRes");
+const avatarAttDur = document.querySelector("#baseStatTextDur");
+const blessAttStr = document.querySelector("#blessingStatStr");
+const blessAttMgk = document.querySelector("#blessingStatMgk");
+const blessAttSpd = document.querySelector("#blessingStatSpd");
+const blessAttDex = document.querySelector("#blessingStatDex");
+const blessAttDef = document.querySelector("#blessingStatDef");
+const blessAttRes = document.querySelector("#blessingStatRes");
+const blessAttDur = document.querySelector("#blessingStatDur");
+const equipAttStr = document.querySelector("#equipmentStatStr");
+const equipAttMgk = document.querySelector("#equipmentStatMgk");
+const equipAttSpd = document.querySelector("#equipmentStatSpd");
+const equipAttDex = document.querySelector("#equipmentStatDex");
+const equipAttDef = document.querySelector("#equipmentStatDef");
+const equipAttRes = document.querySelector("#equipmentStatRes");
+const equipAttDur = document.querySelector("#equipmentStatDur");
+
+
+//UI bottom
+
+const lvlText = document.querySelector("#lvlText");
+const hpText = document.querySelector("#hpText");
+const hpMaxText = document.querySelector("#hpMaxText");
+const manaText = document.querySelector("#manaText");
+const manaMaxText = document.querySelector("#manaMaxText");
+const goldText = document.querySelector("#goldText");
+
+
+
+
 document.querySelector("#create-character-button").addEventListener("click", function (e) {
   e.preventDefault();
   const selectedGender = document.querySelector('input[name="gender"]:checked').value;
@@ -11,7 +52,7 @@ document.querySelector("#create-character-button").addEventListener("click", fun
   let skillset = [...character.skills, selectedSkill];
   console.log(skillset);
   character.class = selectedJob;
-  character.title = "unknown"
+  character.title = "beginner"
   character.skills = skillset;
   console.log(character);
   let setStat = character.stats;
@@ -160,10 +201,12 @@ document.querySelector("#create-character-button").addEventListener("click", fun
   }
   let imgSrc = `images/${selectedGender}-${selectedJob}.png`;
   let imgHover = `images/hover-${selectedGender}-${selectedJob}.png`;
-  let imgAvatar = 'images/avatar/avatar-f-w.png'
+  let imgAvatar = `images/avatar/avatar-${selectedGender}-${selectedJob}.png`;
+  let imgHoverAvatar = `images/avatar/hover-avatar-${selectedGender}-${selectedJob}.png`;
   character.goddess = selectedBlessing;
   character.display = {
     avatar: imgAvatar,
+    avatarHover: imgHoverAvatar,
     charDisplay: imgSrc,
     charHover: imgHover 
   }
@@ -208,3 +251,73 @@ console.log(newstat);
 // Updating the newbase stats
 return newstat;
 };   
+
+function calcHpMana() {
+  let charStatEnd = character.stats.dur;
+  let charStatRes = character.stats.res;
+  let charStatDef = character.stats.def;
+  let charStatStr = character.stats.str;
+
+  let characterHealthFull = 0;
+
+  characterHealthFull = 50 + (charStatEnd * 5) + (charStatDef * 2) + (charStatRes * 2) + (charStatStr*2);
+  
+  let charStatMgk = character.stats.mgk;
+  let characterManaFull = 0
+  characterManaFull = 40 + (charStatMgk * 5) + (charStatStr * 5);
+  
+  character.hitpoint.hpMax = characterHealthFull;
+  character.manapoint.manaMax = characterManaFull;
+  saveData();
+}
+function initializeHpMana(){
+  character.hitpoint.hp = character.hitpoint.hpMax;
+  character.manapoint.mana = character.manapoint.manaMax;
+  saveData();
+}
+
+function UpdateUIDisplay() {
+  
+  avatarName.innerText = character.name;
+  avatarTitle.innerText = character.title;
+  avatarClass.innerText = character.class;
+  avatarAttStr.innerText = character.baseStats.str;
+  avatarAttMgk.innerText = character.baseStats.mgk;
+  avatarAttSpd.innerText = character.baseStats.spd;
+  avatarAttDex.innerText = character.baseStats.dex;
+  avatarAttDef.innerText = character.baseStats.def;
+  avatarAttRes.innerText = character.baseStats.res;
+  avatarAttDur.innerText = character.baseStats.dur;
+  blessAttStr.innerText = character.blessingStats.str;
+  blessAttMgk.innerText = character.blessingStats.mgk;
+  blessAttSpd.innerText = character.blessingStats.spd;
+  blessAttDex.innerText = character.blessingStats.dex;
+  blessAttDef.innerText = character.blessingStats.def;
+  blessAttRes.innerText = character.blessingStats.res;
+  blessAttDur.innerText = character.blessingStats.dur;
+  equipAttStr.innerText = character.equippedStats.str;
+  equipAttMgk.innerText = character.equippedStats.mgk;
+  equipAttSpd.innerText = character.equippedStats.spd;
+  equipAttDex.innerText = character.equippedStats.dex;
+  equipAttDef.innerText = character.equippedStats.def;
+  equipAttRes.innerText = character.equippedStats.res;
+  equipAttDur.innerText = character.equippedStats.dur;
+
+  const CharacterAvatarImg = document.createElement('img');
+  let imgsrc = "";
+  imgsrc = character.display.avatar;
+  console.log(imgsrc);
+  CharacterAvatarImg.src = imgsrc;
+  CharacterAvatarImg.alt = "character avatar img";
+  avatarImg.appendChild(CharacterAvatarImg);
+  calcHpMana();
+  initializeHpMana();
+  saveData();
+  lvlText.innerText = character.lvl;
+  hpText.innerText = character.hitpoint.hp;
+  hpMaxText.innerText = character.hitpoint.hpMax;
+  goldText.innerText = character.gold;
+  manaText.innerText = character.manapoint.mana;
+  manaMaxText.innerText = character.manapoint.manaMax;
+  console.log(character);
+}

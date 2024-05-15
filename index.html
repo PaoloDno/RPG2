@@ -27,27 +27,28 @@
       <div class="userpanel">
         <div class="avatarcard flex-column">
           <div class="avatar-descriptions">
-          <div class="avatar-image">
+          <div class="avatar-image" id="avatar-image">
 
           </div>
           <div class="avatar-description">
             <span id="avatar-name">Juan</span>
-            <span class="avatar-class">Trainee</span>
-            <span class="avatar-title">Newb</span>
+            <span class="avatar-class" id="avatar-class">Trainee</span>
+            <span class="avatar-title" id="avatar-title">Newb</span>
           </div>
           </div>
           <div class="avatar-att flex-column">
-              <p>STR :<strong><span id="baseStatTextStr"></span></strong> + <strong><span id="inventoryStatStr"></span> </strong></p>
-              <p>MGK :<strong><span id="baseStatTextMgk"></span></strong> + <strong><span id="inventoryStatMgk"></span> </strong></p>
-              <p>SPD :<strong><span id="baseStatTextSpd"></span></strong> + <strong><span id="inventoryStatSpd"></span> </strong></p>
-              <p>DEX :<strong><span id="baseStatTextAgi"></span></strong> + <strong><span id="inventoryStatAgi"></span> </strong></p>
-              <p>DEF :<strong><span id="baseStatTextDef"></span></strong> + <strong><span id="inventoryStatDef"></span> </strong></p>
-              <p>RES : <strong><span id="baseStatTextRes"></span></strong> + <strong><span id="inventoryStatRes"></span> </strong></p>            
-              <p>END :<strong><span id="baseStatTextHp"></span></strong> + <strong><span id="inventoryStatHp"></span> </strong></p>
+              <p>STR :<strong><span id="baseStatTextStr" class="red"></span></strong> + <strong><span id="blessingStatStr" class="orange"></span> + <strong><span id="equipmentStatStr" class="red"></span> </strong></p>
+              <p>MGK :<strong><span id="baseStatTextMgk" class="red"></span></strong> + <strong><span id="blessingStatMgk" class="orange"></span> + <strong><span id="equipmentStatMgk" class="red"></span> </strong></p>
+              <p>SPD :<strong><span id="baseStatTextSpd" class="red"></span></strong> + <strong><span id="blessingStatSpd" class="orange"></span> + <strong><span id="equipmentStatSpd" class="red"></span> </strong></p>
+              <p>DEX :<strong><span id="baseStatTextDex" class="red"></span></strong> + <strong><span id="blessingStatDex" class="orange"></span> + <strong><span id="equipmentStatDex" class="red"></span> </strong></p>
+              <p>DEF :<strong><span id="baseStatTextDef" class="red"></span></strong> + <strong><span id="blessingStatDef" class="orange"></span> + <strong><span id="equipmentStatDef" class="red"></span> </strong></p>
+              <p>RES : <strong><span id="baseStatTextRes" class="red"></span></strong> + <strong><span id="blessingStatRes" class="orange"></span> + <strong><span id="equipmentStatRes" class="red"></span> </strong></p>            
+              <p>DUR :<strong><span id="baseStatTextDur" class="red"></span></strong> + <strong><span id="blessingStatDur" class="orange"></span> + <strong><span id="equipmentStatDur" class="red"></span> </strong></p>
           </div>
           <div class="avatar-hax flex-column">
-            <div class="box"><p>SKILLS : <strong><span id="skillsSetsText"></span></strong></p></div>
-            <div class="box"><p>BLESSINGS : <strong><span id="blessingText"></span></strong></p></div>
+            <div class="box"><p>Skills : <strong> <span id="skillsSetsText"></span></strong></p></div>
+            <div class="box"><p>Blessing : <strong> <span id="blessingText"></span></strong></p></div>
+            <div class="box"><p>Companion : <strong> <span id="CompanionSpan"></span></strong></p></div>
           </div>
         </div>
       </div>
@@ -69,8 +70,8 @@
               a
             </div>
             <p><span class="name-value-b">Jimbo</span></p>
-            <p>hp:<span class="hp-b">100</span></p>
-            <p>mana:<span class="mana-b">100</span></p>
+            <p>hp:<span class="hp-b" id="health-UI">100</span></p>
+            <p>mana:<span class="mana-b" id="mana-UI">100</span></p>
           </div>
           <div class="card">
             <div class="img">
@@ -120,8 +121,8 @@
     <div class="displaypanel">
       <div class="stats">
         <p class="stat">Lv: <strong><span id="lvlText">0</span></strong></p>
-        <p class="stat">Hp: <strong><span id="hpText">100</span></strong></p>
-        <p class="stat">Mana: <strong><span id="manaText">100</span></strong></p>
+        <p class="stat">Hp: <strong><span id="hpText">100</span>/<span id="hpMaxText">100</span></strong></p>
+        <p class="stat">Mana: <strong><span id="manaText">100</span>/<span id="manaMaxText">100</span></strong></p>
         <p class="stat">Gold: <strong><span id="goldText">100</span></strong></p>
       </div>
       <div class="controls">

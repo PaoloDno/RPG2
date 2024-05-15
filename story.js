@@ -96,6 +96,9 @@ function loadStory() {
 
 
 function progress2() {
+  //testfunction
+  calcHpMana();
+  initializeHpMana();
   nextStory(storyProgress[2]);
 }
 function progress3() {
@@ -126,6 +129,7 @@ function progress9() {
 
 
 function progress10() {
+  character.companion.push("Aqua");
   console.log("you are receiving a blessing");
   loadStory();
   let choosenBlessing = character.goddess;
@@ -174,7 +178,11 @@ function progress10() {
   character.blessingStats.def += recievedBlessing.attributes.def;
   character.blessingStats.res += recievedBlessing.attributes.res;
   character.blessingStats.dur += recievedBlessing.attributes.dur;
-  console.log(character);
+  character.stats = calc(character.baseStats, character.equippedStats, character.blessingStats);
+  saveData();
+  UpdateUIDisplay();
+
+
 }
 
 function closeStory() {

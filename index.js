@@ -52,6 +52,7 @@ window.addEventListener("load", function() {
                 passive: [],
                 blessings: [],
                 goddess: "",
+                companion: [],
                 stats: {
                     str: null,
                     mgk: null,
@@ -111,6 +112,7 @@ window.addEventListener("load", function() {
                 },
                 display: {
                     avatar: "",
+                    avatarHover: "",
                     charDisplay: "",
                     charHover: ""
                 },
