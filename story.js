@@ -29,15 +29,15 @@ let storyProgress = [
   },
   {
     storyTitle: "Prolouge",
-    storyText: `"because im such a good and benevolent god you are to be given one legendary item to take in your next life..`,
+    storyText: `"because im such a good and benevolent god *yapping..`,
     buttonText: "...",
     buttonFunc: progress5,
     bgimg: './images/misc/goddess3.jpg'
   },
   {
     storyTitle: "Prolouge",
-    storyText: `"You can pick any legendary item you want since you'll bla.. bla.. bla.."`,
-    buttonText: "... I.. I choose you",
+    storyText: `"You can pick any legendary item you wan- bla.. bla.. bla.."`,
+    buttonText: "... I.. I choose you!",
     buttonFunc: progress6,
     bgimg: './images/misc/goddess5.jpg'
   },
@@ -138,24 +138,24 @@ function progress10() {
   switch (choosenBlessing) {
     case 'fire-blessing':
       godimg = `#ac120d`;
-      gameNotif.innerText = "The GOD of Fire is burning with passion";
+      gameNotif.innerText = "The GOD of Fire is burning with passion\n";
       recievedBlessing = FireBlessing(recievedBlessing); 
       
       break;
     case 'wind-blessing':
       godimg = `#9ac6ee`;
-      gameNotif.innerText = "The GOD of Wind is thrilled for your journey";
+      gameNotif.innerText = "The GOD of Wind is thrilled for your journey\n";
       recievedBlessing = WindBlessing(recievedBlessing); // Pass the receivedBlessing object
       
       break;
     case 'earth-blessing':
       godimg = `#9ee74a`;
-      gameNotif.innerText = "The GOD of Earth is worried for your safety";
+      gameNotif.innerText = "The GOD of Earth is worried for your safety\n";
       recievedBlessing = EarthBlessing(recievedBlessing); // Pass the receivedBlessing object
       break;
     case 'water-blessing':
       godimg = `#2c68c2`;
-      gameNotif.innerText = "The GOD of Water is not in his realm right now";
+      gameNotif.innerText = "The GOD of Water is missing.. \n ";
       recievedBlessing = WaterBlessing(recievedBlessing); // Pass the receivedBlessing object
       break;
     default:
@@ -186,7 +186,6 @@ function progress10() {
 }
 
 function closeStory() {
-
   gameModal.style.display = "none";
 }
 
