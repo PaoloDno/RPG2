@@ -5,7 +5,7 @@ function updateCharacterImage(event) {
   const selectedGender = document.querySelector('input[name="gender"]:checked').value;
   const selectedJob = document.getElementById('job').value; // Corrected 'class' to 'job'
   const selectedSkill = document.getElementById('skill').value;
-  const selectedPassive = document.getElementById('passive').value;
+  const selectedBlessing = document.getElementById('blessing').value;
   const selectedcharacterNameInput = document.getElementById('characterNameInput').value;
   const characterImageDiv = document.getElementById('img-creation');
   characterImageDiv.innerHTML = ''; // Clear previous image
@@ -53,11 +53,12 @@ function updateCharacterImage(event) {
         break;
     }
   }
-
+  addNotification("skill", `${selectedSkill}`);
+  addNotification("blessing", `${selectedBlessing}`);
   img.src = src;
   img.alt = 'Character Image';
   characterImageDiv.appendChild(img);
-  console.log(selectedGender, selectedJob, selectedcharacterNameInput, selectedPassive, selectedSkill);
+  console.log(selectedGender, selectedJob, selectedcharacterNameInput, selectedBlessing, selectedSkill);
 }
 
 document.getElementById('characterForm').addEventListener('change', updateCharacterImage);

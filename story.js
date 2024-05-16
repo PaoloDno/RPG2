@@ -162,7 +162,9 @@ function progress10() {
       godimg = `#2c68c2`;
       break;
   }
-
+  addNotification("blessing", `${choosenBlessing}`);
+  addNotification("companion", "Aqua");
+  addNotification("location", "Town");
   console.log("Receive blessing", recievedBlessing);
   
   gameModal.style.backgroundImage = "none";
@@ -181,7 +183,7 @@ function progress10() {
   character.stats = calc(character.baseStats, character.equippedStats, character.blessingStats);
   saveData();
   UpdateUIDisplay();
-
+  showNotif(currentNotifIndex);
 
 }
 

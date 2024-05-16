@@ -52,15 +52,18 @@
           </div>
         </div>
       </div>
-      <div class="monitorpanel">
+      <div class="monitorpanel" id="monitorpanel">
         monitor
       </div>
-      <div class="textpanel">
+      <div class="textpanel" id="textpanel">
         text
       </div>
-      <div class="modalpanel">
-        <div class="modal-content">
-          modal-box-texts
+      <div class="modalpanel" id="modalpanel">
+        <div class="modal-content" id="modal-content">
+          <div class="flex modal-content-text" id="modal-content-text">
+            TEXT here
+          </div>
+          <button class="bttn" id="modal-content-button">Ok</button>
         </div>
       </div>
       <div class="inbattle">
@@ -126,10 +129,10 @@
         <p class="stat">Gold: <strong><span id="goldText">100</span></strong></p>
       </div>
       <div class="controls">
-        <button class="control-button" id="button-1">Start Game</button>
-        <button class="control-button" id="button-2">Start Game</button>
-        <button class="control-button" id="button-3">Start Game</button>
-        <button class="control-button" id="button-4">Start Game</button>
+        <button class="control-button" id="button-1">X</button>
+        <button class="control-button" id="button-2">O</button>
+        <button class="control-button" id="button-3">A</button>
+        <button class="control-button" id="button-4">B</button>
       </div>
     </div>
     
@@ -178,9 +181,9 @@
             </select>
           </div>
           <div>
-            <label for="passive">Blessings:</label>
+            <label for="blessing">Blessings:</label>
             <br></br>
-            <select id="passive" name="passive">
+            <select id="blessing" name="blessing">
                 <option value="fire-blessing">Fire Goddess</option>
                 <option value="wind-blessing">Wind Goddess</option>
                 <option value="earth-blessing">Earth Goddess</option>
@@ -230,7 +233,9 @@
   <div id="curtain" class="modal-1">
 
   </div>
+  <script src="const.js"></script>
   <script src="character.js"></script>
+  <script src="modal.js"></script>
   <script src="blessing.js"></script>
   <script src="story.js"></script>
   <script src="creationpanel.js"></script>
