@@ -58,7 +58,7 @@ function updateCharacterImage(event) {
   img.src = src;
   img.alt = 'Character Image';
   characterImageDiv.appendChild(img);
-  console.log(selectedGender, selectedJob, selectedcharacterNameInput, selectedBlessing, selectedSkill);
+  console.log(selectedGender, selectedJob, selectedBlessing, selectedSkill);
 }
 
 document.getElementById('characterForm').addEventListener('change', updateCharacterImage);

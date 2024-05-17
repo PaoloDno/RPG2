@@ -41,9 +41,14 @@ const manaMaxText = document.querySelector("#manaMaxText");
 const goldText = document.querySelector("#goldText");
 
 //monitor
-const monitorpanel = document.querySelector("#monitrpanel");
+const monitorpanel = document.querySelector("#monitorpanel");
 const textpanel = document.querySelector("#textpanel");
 const modalpanel = document.querySelector("#modalpanel");
 const modalcontent = document.querySelector("#modal-content");
 const modalcontentpanel = document.querySelector("#modal-content-text");
 const modalcontentbttn = document.querySelector("#modal-content-button");
+//buttons
+const button1 = document.querySelector("#button-1");
+const button2 = document.querySelector("#button-2");
+const button3 = document.querySelector("#button-3");
+const button4 = document.querySelector("#button-4");

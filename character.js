@@ -176,7 +176,7 @@ document.querySelector("#create-character-button").addEventListener("click", fun
   character.stats = calc(character.baseStats, character.equippedStats, character.blessingStats);
   console.log(character);
   saveData();
-  runLoad("game-modal", "flex");
+  runLoad("game-story", "flex");
   characterCreationPanel.style.display = "none";
   nextStory(storyProgress[0]);
 });

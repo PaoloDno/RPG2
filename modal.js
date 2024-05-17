@@ -72,3 +72,14 @@ modalcontentbttn.addEventListener("click", function () {
   currentNotifIndex++;
   showNotif(currentNotifIndex);
 });
+
+
+function textpanelAppear(text){
+  textpanel.style.display = "flex";
+  textpanel.innerHTML = `${text}`;
+  setTimeout(async () => {
+    textpanel.style.display = "none";
+    textpanel.innerHTML = "";
+}, 3100);
+}
+

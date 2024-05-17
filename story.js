@@ -1,5 +1,5 @@
 
-const gameModal = document.querySelector("#game-modal");
+const gameStory = document.querySelector("#game-story");
 const gameNotif = document.querySelector("#game-notif");
 const notifButton = document.querySelector("#button-notif");
 const notifTitle = document.querySelector("#notif-title");
@@ -81,7 +81,7 @@ let storyProgress = [
 function nextStory(storyProgress) {
   console.log("story progressing")
   loadStory();
-  gameModal.style.backgroundImage = `url("${storyProgress.bgimg}"`;
+  gameStory.style.backgroundImage = `url("${storyProgress.bgimg}"`;
   notifButton.innerText = storyProgress.buttonText;
   notifButton.onclick = storyProgress.buttonFunc;
   notifTitle.innerText = storyProgress.storyTitle;
@@ -91,7 +91,7 @@ function loadStory() {
   curtain.style.display = "flex";
   setTimeout(async () => {
     curtain.style.display = "none";
-}, 1100);
+}, 750);
 }
 
 
@@ -129,6 +129,7 @@ function progress9() {
 
 
 function progress10() {
+  console.log(character);
   character.companion.push("Aqua");
   console.log("you are receiving a blessing");
   loadStory();
@@ -167,8 +168,8 @@ function progress10() {
   addNotification("location", "Town");
   console.log("Receive blessing", recievedBlessing);
   
-  gameModal.style.backgroundImage = "none";
-  gameModal.style.backgroundColor = `${godimg}`;
+  gameStory.style.backgroundImage = "none";
+  gameStory.style.backgroundColor = `${godimg}`;
   notifButton.onclick = closeStory;
   notifTitle.innerText = "Prologue";
   gameNotif.innerText += ` you receive a ${recievedBlessing.name}`;
@@ -184,10 +185,9 @@ function progress10() {
   saveData();
   UpdateUIDisplay();
   showNotif(currentNotifIndex);
-
 }
 
 function closeStory() {
-  gameModal.style.display = "none";
+  gameStory.style.display = "none";
 }
 
