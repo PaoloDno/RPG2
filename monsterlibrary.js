@@ -24,6 +24,8 @@ function initializeMonster(name, floor, section) {
     lvl: 0,
     hitpoint: 0,
     manapoint: 0,
+    hitpointMax: 0,
+    manapointMax: 0,
     stats: {
         str: null,
         mgk: null,
@@ -86,6 +88,8 @@ function initializeMonster(name, floor, section) {
   monster.lvl = lvl;
   monster.hitpoint = hitpoint;
   monster.manapoint = manapoint;
+  monster.hitpointMax = hitpoint;
+  monster.manapointMax = manapoint;
   monster.stats = baseStats;
   monster.skills = skills;
 
