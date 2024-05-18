@@ -208,38 +208,51 @@
 }
 .body-content .inbattle{
   display: none;
+  top: 0;
+  left: 0; 
   position: absolute;
   flex-direction: column;
-  width: 75%;
-  right: 0;
-  height: 98%;
-  z-index: 8;
-  background-color: #363636;
+  width: 100%;
+  height: 100%;
+  z-index: 60;
+  background-color: #1f1e1ef6;
   gap: 20px;
   .teamsection, .monstersection{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     height: 40%;
-    padding: 30px;
-    gap: 6px;
-    .card{
+    padding: 6px;
+    gap: 8px;
+    .inbattle-card{
       overflow: hidden;
-      color: #000;
+      color: #bef35c;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
       padding: 7px;
-      width: 105px;
-      height: 160px;
-      background-color: #f1f1f1;
-      .img{
+      width: 115px;
+      height: 170px;
+      background-color: #f7b72dd3;
+      color: rgb(15, 15, 15);
+      border-radius: 5px;
+      .inbattle-img-card{
+        border: 1px solid snow;
+        margin: 5px;
+        margin-left: auto;
+        margin-right: auto;
         display: flex;
-        width: 82px;
+        width: 97px;
         height: 80px;
         background-color: #161414;
+        img{
+          display: flex;
+          width: 97px;
+          height: 80px;
+          object-fit: cover;
+        }
       }
     }
   }

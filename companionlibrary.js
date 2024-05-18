@@ -1,6 +1,6 @@
 function initializeCompany(name, charlvl) {
   let multiplier = 1 + (charlvl * 0.1); //multiplier based on level
-
+  let imgs;
   let baseStats;
   let skills;
 
@@ -18,7 +18,9 @@ function initializeCompany(name, charlvl) {
         res: null,
         dur: null
     },
-    skills: []
+    skills: [],
+    img: ""
+
   };
 
   switch (name) {
@@ -33,6 +35,7 @@ function initializeCompany(name, charlvl) {
               dur: applyMultiplier(40, multiplier)  //2
           };
           skills = ["god blow", "god heal", "god normal"];
+          imgs = "./images/battleImgs/Aqua.png";
           break;
       case 'Goblin Slayer':
           baseStats = {
@@ -45,6 +48,7 @@ function initializeCompany(name, charlvl) {
               dur: applyMultiplier(50, multiplier)  //3
           };
           skills = ["clubbing", "dark ball"];
+          imgs = "./images/battleImgs/Aqua.png";
           break;
       default:
           throw new Error('Unknown monster type');
@@ -63,6 +67,7 @@ function initializeCompany(name, charlvl) {
   companion.manapointMax = manapoint;
   companion.stats = baseStats;
   companion.skills = skills;
+  companion.img = imgs;
 
   return companion;
 }

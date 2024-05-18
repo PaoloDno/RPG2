@@ -20,6 +20,7 @@ document.querySelector("#create-character-button").addEventListener("click", fun
   let setStat = character.stats;
   let setbaseStat = character.baseStats;
   let baseStat = [];
+  let normalAtk;
   console.log("1", setbaseStat);
   console.log("2", setStat);
   console.log(`basestat${baseStat}`)
@@ -38,6 +39,7 @@ document.querySelector("#create-character-button").addEventListener("click", fun
         }
         character.ultimateSkill = "twinblade assualt"
         baseStat = baseStats;
+        normalAtk = "Quick Slash";
         break;
       case 'mage':
         baseStats = {
@@ -51,7 +53,7 @@ document.querySelector("#create-character-button").addEventListener("click", fun
         }
         character.ultimateSkill = "Mystic Vine"
         baseStat = baseStats;
-        console.log(`basestat${baseStat}`)
+        normalAtk = "Earth Spike";
         break;
       case 'rogue': 
       baseStats = {
@@ -64,7 +66,8 @@ document.querySelector("#create-character-button").addEventListener("click", fun
         dur: 60   //4
       }
       character.ultimateSkill = "Sonic Kick"
-      baseStat = baseStats;  
+      baseStat = baseStats;
+      normalAtk = "Quick Slash"; 
         break;
       case 'tank': 
       baseStats = {
@@ -76,7 +79,8 @@ document.querySelector("#create-character-button").addEventListener("click", fun
         def: 40,  //2
         dur: 100  //5
       }
-      character.ultimateSkill = "Wrath Pulse"
+      character.ultimateSkill = "Wrath Pulse";
+      normalAtk = "Shield Bash";
       baseStat = baseStats;
         break;
       
@@ -108,6 +112,7 @@ document.querySelector("#create-character-button").addEventListener("click", fun
         }
         character.ultimateSkill = "Sword Wheel"
         baseStat = baseStats;
+        normalAtk = "Quick Slash";
         break;
       case 'mage':
         baseStats = {
@@ -121,6 +126,7 @@ document.querySelector("#create-character-button").addEventListener("click", fun
         }
         character.ultimateSkill = "Explosion"
         baseStat = baseStats;
+        normalAtk = "Advance Magic: Magic Bullet";
         break;
       case 'rogue':
         baseStats = {
@@ -133,7 +139,8 @@ document.querySelector("#create-character-button").addEventListener("click", fun
           dur: 60   //4
         }
         character.ultimateSkill = "Blicky"
-        baseStat = baseStats; 
+        baseStat = baseStats;
+        normalAtk = "Knife Stab";
         break;
       case 'tank':
         baseStats = {
@@ -147,6 +154,7 @@ document.querySelector("#create-character-button").addEventListener("click", fun
         }
         character.ultimateSkill = "Godzilla Breath"
         baseStat = baseStats;
+        normalAtk = "Shield Attack";
         break;
       default:
         baseStats = {
@@ -172,6 +180,7 @@ document.querySelector("#create-character-button").addEventListener("click", fun
     charDisplay: imgSrc,
     charHover: imgHover 
   }
+  character.normalAtk = normalAtk;
   character.baseStats = baseStat;
   character.stats = calc(character.baseStats, character.equippedStats, character.blessingStats);
   console.log(character);

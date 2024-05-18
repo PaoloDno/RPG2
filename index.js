@@ -47,6 +47,7 @@ window.addEventListener("load", function() {
                 lvl: 1,
                 class: null,
                 title: null,
+                normalAtk: null,
                 skills: [],
                 ultimateSkill: null,
                 passive: [],
@@ -139,3 +140,5 @@ window.addEventListener("load", function() {
 
 
 });
+
+

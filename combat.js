@@ -10,6 +10,7 @@ function StartExploring() {
   if(combat === null){
     combat = {
       currentFloor: 0,
+      inBattle: [],
       party: [],
       monster: [],
       partyStats: {
@@ -25,6 +26,7 @@ function StartExploring() {
         def: [],
         res: [],
         dur: [],
+        imgs: []
       },
       monstersStats: {
         lvl: [],
@@ -39,9 +41,10 @@ function StartExploring() {
         def: [],
         res: [],
         dur: [],
+        imgs: []
       },
-      roundIndex: 0,
-      floor: 12,
+      roundIndex: [],
+      floor: 1,
       section: 1,
     };
   } else {
@@ -59,6 +62,8 @@ function StartExploring() {
     combat.monstersStats.def = [];
     combat.monstersStats.res = [];
     combat.monstersStats.dur = [];
+    combat.monstersStats.imgs = [];
+    
     
     combat.party = [];
     combat.partyStats.lvl = [];
@@ -73,6 +78,12 @@ function StartExploring() {
     combat.partyStats.def = [];
     combat.partyStats.res = [];
     combat.partyStats.dur = [];
+    combat.partyStats.imgs = [];
+
+    combat.floor = 1;
+    combat.section = 1;
+    combat.inBattle = [];
+    combat.roundIndex = [];
   } 
   
     
@@ -100,11 +111,11 @@ function InitializeCombat(floor) {
     
     let selectedEnemyName = monsterNames[Math.floor(Math.random() * monsterNames.length)];
     let monster = initializeMonster(selectedEnemyName, combat.floor, combat.section);
-    combat.monster.push(`${selectedEnemyName} ${i + 1}`);
+    combat.monster.push(`${selectedEnemyName} Lvl: ${monster.lvl}`);
     combat.monstersStats.hitpoint.push(monster.hitpoint);
     combat.monstersStats.manapoint.push(monster.manapoint);
-    combat.monstersStats.hitpoint.push(monster.hitpointMax);
-    combat.monstersStats.manapoint.push(monster.manapointMax);
+    combat.monstersStats.hitpointMax.push(monster.hitpointMax);
+    combat.monstersStats.manapointMax.push(monster.manapointMax);
     combat.monstersStats.lvl.push(monster.lvl);
     combat.monstersStats.str.push(monster.stats.str);
     combat.monstersStats.mgk.push(monster.stats.mgk);
@@ -113,6 +124,7 @@ function InitializeCombat(floor) {
     combat.monstersStats.def.push(monster.stats.def);
     combat.monstersStats.res.push(monster.stats.res);
     combat.monstersStats.dur.push(monster.stats.dur);
+    combat.monstersStats.imgs.push(monster.img);
     // Add other stats similarly
   }
   console.log(combat);
@@ -132,6 +144,7 @@ function InitializeCombat(floor) {
   combat.partyStats.def.push(character.stats.def);
   combat.partyStats.res.push(character.stats.res);
   combat.partyStats.dur.push(character.stats.dur);
+  combat.partyStats.imgs.push(character.display.avatarHover);
 
   console.log(character);
   console.log(combat);
@@ -153,12 +166,14 @@ function InitializeCombat(floor) {
   combat.partyStats.def.push(companion.stats.def);
   combat.partyStats.res.push(companion.stats.res);
   combat.partyStats.dur.push(companion.stats.dur);
-
+  combat.partyStats.imgs.push(companion.img);
   }
   
   console.log(combat);
-
+  combat.inBattle = [...combat.party, ...combat.monster];
   saveCombatData(); // Save updated combat data
+  
+  initializeBattleDisplay();
 }
 
 const saveCombatData = () => {

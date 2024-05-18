@@ -3,7 +3,7 @@
 
 // Function to calculate monster level
 function calculateMonsterLVL(floor, section) {
-  return Math.floor(Math.random() * (floor * 2) * (section * 1));
+  return Math.floor(Math.random() * (floor * section) );
 }
 
 // Function to apply multiplier to stats
@@ -15,7 +15,7 @@ function applyMultiplier(stat, multiplier) {
 function initializeMonster(name, floor, section) {
   let lvl = calculateMonsterLVL(floor, section);
   let multiplier = 1 + (lvl * 0.1); //multiplier based on level
-
+  let imgs;
   let baseStats;
   let skills;
 
@@ -35,7 +35,8 @@ function initializeMonster(name, floor, section) {
         res: null,
         dur: null
     },
-    skills: []
+    skills: [],
+    img: ""
   };
 
   switch (name) {
@@ -49,7 +50,8 @@ function initializeMonster(name, floor, section) {
               res: applyMultiplier(20, multiplier),
               dur: applyMultiplier(50, multiplier)
           };
-          skills = ["clubbing"];
+          skills = ["clubbing", "goblin time"];
+          imgs = "./images/battleImgs/goblin.png";
           break;
       case 'goblin shaman':
           baseStats = {
@@ -62,6 +64,7 @@ function initializeMonster(name, floor, section) {
               dur: applyMultiplier(20, multiplier)
           };
           skills = ["clubbing", "dark ball"];
+          imgs = "./images/battleImgs/goblinShaman.png";
           break;
       case 'hob goblin':
           baseStats = {
@@ -74,6 +77,7 @@ function initializeMonster(name, floor, section) {
               dur: applyMultiplier(60, multiplier)
           };
           skills = ["trashing", "heavy smash"];
+          imgs = "./images/battleImgs/goblinHob.png";
           break;
       default:
           throw new Error('Unknown monster type');
@@ -92,7 +96,7 @@ function initializeMonster(name, floor, section) {
   monster.manapointMax = manapoint;
   monster.stats = baseStats;
   monster.skills = skills;
-
+  monster.img = imgs;
   return monster;
 }
 

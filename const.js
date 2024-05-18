@@ -47,8 +47,15 @@ const modalpanel = document.querySelector("#modalpanel");
 const modalcontent = document.querySelector("#modal-content");
 const modalcontentpanel = document.querySelector("#modal-content-text");
 const modalcontentbttn = document.querySelector("#modal-content-button");
+
 //buttons
 const button1 = document.querySelector("#button-1");
 const button2 = document.querySelector("#button-2");
 const button3 = document.querySelector("#button-3");
 const button4 = document.querySelector("#button-4");
+
+//inbattle
+const inBattleModal = document.querySelector("#inbattle-modal");
+const teamSection = document.querySelector("#teamsection");
+const monsterSection = document.querySelector("#monstersection");
+
