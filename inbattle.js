@@ -127,7 +127,7 @@ function automatedAction(HisTurn, Index){
   for(let i = 0; i < combat.party.length; i++){
     if(combat.partyStats.hitpoint[i] <=  (combat.partyStats.hitpointMax[i] * 0.4) && companionSkillLibrary[i].defensiveSkills.length != 0){
       if(whatSkillToUse < 80){
-        return useSkillOnATarget(companionSkillLibrary[i].defensiveSkills[0], Index, i, "party", "buff");
+        return useSkillOnATarget(companionSkillLibrary[userSkillIndex].defensiveSkills[0], Index, i, "party", "buff");
       } else {
         let useSkill = companionSkillLibrary[userSkillIndex].offensiveSkills[Math.floor(Math.random() * companionSkillLibrary[userSkillIndex].offensiveSkills.length)];
         let target = Math.floor(Math.random() * combat.monster.length); 
@@ -153,7 +153,7 @@ function automatedActionEnemy( HisTurn, Index){
     if(combat.monstersStats.hitpoint[i] <=  (combat.monstersStats.hitpointMax[i] * 0.4) && companionSkillLibrary[i].defensiveSkills.length != 0){
       
       if(whatSkillToUse < 80){
-        return useSkillOnATarget(monstersSkillLibrary[i].defensiveSkills[0], Index, i, "monster", "buff");
+        return useSkillOnATarget(monstersSkillLibrary[userSkillIndex].defensiveSkills[0], Index, i, "monster", "buff");
       } else {
         let useSkill = monstersSkillLibrary[userSkillIndex].offensiveSkills[Math.floor(Math.random() * monstersSkillLibrary[userSkillIndex].offensiveSkills.length)];
         let target = Math.floor(Math.random() * combat.party.length); 
