@@ -1,7 +1,9 @@
+//StartExploring, InitializeCombat, saveCombatData
+
 let combat = JSON.parse(localStorage.getItem("combatData"));
 
 let monsterNames = [
-  'goblin', 'goblin shaman', 'hob goblin'
+  'Goblin', 'Goblin Shaman', 'Hob Goblin'
 ];
 
 function StartExploring() {
@@ -43,7 +45,9 @@ function StartExploring() {
         dur: [],
         imgs: []
       },
+      textPrompt: [],
       roundIndex: [],
+      speedIndexes: [],
       floor: 1,
       section: 1,
     };
@@ -111,7 +115,7 @@ function InitializeCombat(floor) {
     
     let selectedEnemyName = monsterNames[Math.floor(Math.random() * monsterNames.length)];
     let monster = initializeMonster(selectedEnemyName, combat.floor, combat.section);
-    combat.monster.push(`${selectedEnemyName} Lvl: ${monster.lvl}`);
+    combat.monster.push(selectedEnemyName);
     combat.monstersStats.hitpoint.push(monster.hitpoint);
     combat.monstersStats.manapoint.push(monster.manapoint);
     combat.monstersStats.hitpointMax.push(monster.hitpointMax);

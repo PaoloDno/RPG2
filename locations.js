@@ -1,3 +1,5 @@
+//uploadMonitor,GoTown, GoInn, GoStore, GoGuild,GoDungeon
+
 const gameLocations = [
   {
     name: "Towns",
@@ -37,18 +39,17 @@ const gameLocations = [
     "button text": ["Explore", "Explore", "Rest", "Exit"],
     "button functions": [StartExploring, "", "", GoTown]
   },
-  
   {
     name: "Deeper Dungeon",
     text: "Enter the Deeper Dungeon!",
     bgImg: "./images/locations/cave_deep.jpg",
     "button text": ["Explore", "Explore", "Rest", "Exit"],
     "button functions": ["", "", "", GoTown]
-  }
+  },
 ]
 
 //initialize
-uploadMonitor(gameLocations[0]);
+//uploadMonitor(gameLocations[0]);
 
 function uploadMonitor(location) {
   console.log("uploading monitor");

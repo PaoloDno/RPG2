@@ -27,14 +27,12 @@
       <div class="userpanel">
         <div class="avatarcard flex-column">
           <div class="avatar-descriptions">
-          <div class="avatar-image" id="avatar-image">
-
-          </div>
-          <div class="avatar-description">
-            <span id="avatar-name">Juan</span>
-            <span class="avatar-class" id="avatar-class">Trainee</span>
-            <span class="avatar-title" id="avatar-title">Newb</span>
-          </div>
+            <div class="avatar-image" id="avatar-image"></div>
+            <div class="avatar-description">
+              <span id="avatar-name">Juan</span>
+              <span class="avatar-class" id="avatar-class">Trainee</span>
+              <span class="avatar-title" id="avatar-title">Newb</span>
+            </div>
           </div>
           <div class="avatar-att flex-column">
               <p>STR :<strong><span id="baseStatTextStr" class="red"></span></strong> + <strong><span id="blessingStatStr" class="orange"></span> + <strong><span id="equipmentStatStr" class="red"></span> </strong></p>
@@ -55,9 +53,6 @@
       <div class="monitorpanel" id="monitorpanel">
         
       </div>
-      <div class="textpanel" id="textpanel">
-        text
-      </div>
       <div class="modalpanel" id="modalpanel">
         <div class="modal-content" id="modal-content">
           <div class="flex modal-content-text" id="modal-content-text">
@@ -67,50 +62,10 @@
         </div>
       </div>
       <div class="inbattle" id="inbattle-modal">
-        <div class="teamsection" id="teamsection">
-          <div class="inbattle-card">
-            <div class="inbattle-img-card">
-              
-            </div>
-            <p><span class="name-value-inbattle">Jimbo</span></p>
-            <p>hp:<span class="hpText-inbattle">100</span></p>
-            <p>mn:<span class="manaText-inbattle">100</span></p>
-          </div>
-          <div class="inbattle-card">
-            <div class="img inbattle-img-card">
-              
-            </div>
-            <p><span class="name-value-inbattle">Jimbo</span></p>
-            <p>hp:<span class="hpText-inbattle">100</span></p>
-            <p>mn:<span class="manaText-inbattle">100</span></p>
-          </div>  
-          <div class="inbattle-card">
-            <div class="inbattle-img-card">
-              
-            </div>
-            <p><span class="name-value-inbattle">Jimbo</span></p>
-            <p>hp:<span class="hpText-inbattle">100</span></p>
-            <p>mn:<span class="manaText-inbattle">100</span></p>
-          </div>
-        </div>
-        <div class="monstersection" id="monstersection">
-          <div class="inbattle-card">
-            <div class="inbattle-img-card">
-              
-            </div>
-            <p><span class="name-value-inbattle">Jimbo</span></p>
-            <p>hp:<span class="hpText-inbattle">100</span></p>
-            <p>mn:<span class="manaText-inbattle">100</span></p>
-          </div>
-          <div class="inbattle-card">
-            <div class="inbattle-img-card">
-              
-            </div>
-            <p><span class="name-value-inbattle">Jimbo</span></p>
-            <p>hp:<span class="hpText-inbattle">100</span></p>
-            <p>mn:<span class="manaText-inbattle">100</span></p>
-          </div>
-        </div>
+        
+      </div>
+      <div class="textpanel" id="textpanel">
+        text
       </div>
     </div>
     <div class="displaypanel">
@@ -127,7 +82,6 @@
         <button class="control-button" id="button-4">B</button>
       </div>
     </div>
-    
     <div class="characterCreationPanel modal-1 flex-row" id="characterCreationPanel">
       <div class="characterPanelBox center flex-row">
       <div class="character-creation-display">
@@ -136,14 +90,9 @@
         </div>
       </div>
       <div class="creationStatBox flex-column">
-        <div class="characternamebox flex-column">
-          
-        
-        </div>
+        <div class="characternamebox flex-column"></div>
         <span class="creationMsg" id="creationMsg"></span>
-        <div class="characterForm flex-column" id="characterForm" >
-          
-          
+        <div class="characterForm flex-column" id="characterForm">
           <div>
             <label for="gender">And you are a?</label>
             <br></br>
@@ -167,9 +116,9 @@
             <label for="skill">Bunos Skill:</label>
             <br><br>
             <select id="skill" name="skill">
-                <option value="fireball" selected>Fireball</option>
-                <option value="backstab">Backstab</option>
-                <option value="heal">Heal</option>
+                <option value="Fireball" selected>Fireball</option>
+                <option value="Backstab">Backstab</option>
+                <option value="Heal">Heal</option>
             </select>
           </div>
           <div>
@@ -182,7 +131,7 @@
                 <option value="water-blessing" selected>Aqua</option>
             </select>
           </div>
-            <button id="create-character-button" class="bttn">Create Character</button>
+          <button id="create-character-button" class="bttn">Create Character</button>
         </div>
       </div>
       </div>
@@ -201,7 +150,7 @@
     <div class="goddess-welcome-panel modal-1 flex-column" id="goddess-welcome-panel">
       <div id="name-form">
         <div id="name-form-div">
-          <h1>Hello advaenturer!</h1>
+          <h1>Hello Adventurer!</h1>
           <p>You are about to be reborn!</p>
           <p>the goddess ask for your name:</p>
           <input type="text" id="characterNameInput" title="Enter your character's name" class="inputText" />
@@ -215,9 +164,7 @@
   <div class="game-story modal-1 flex-column center" id="game-story">
     <div class="button-box game-modal-box flex-column center">
       <div id="notif-title"></div>
-      <div class="game-notif" id="game-notif">
-
-      </div>
+      <div class="game-notif" id="game-notif"></div>
       <button class=".bttn notif-button" id="button-notif">ok</button>
     </div>
     
@@ -231,6 +178,7 @@
   <script src="character.js"></script>
   <script src="monsterlibrary.js"></script>
   <script src="companionlibrary.js"></script>
+  <script src="skillLibrary.js"></script>
   <script src="combat.js"></script>
   <script src="inbattle.js"></script>
   <script src="modal.js"></script>

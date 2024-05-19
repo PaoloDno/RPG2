@@ -37,7 +37,7 @@ document.querySelector("#create-character-button").addEventListener("click", fun
           def: 40,  //2
           dur: 70   //5
         }
-        character.ultimateSkill = "twinblade assualt"
+        character.ultimateSkill = "Twinblade Assualt"
         baseStat = baseStats;
         normalAtk = "Quick Slash";
         break;
@@ -57,9 +57,9 @@ document.querySelector("#create-character-button").addEventListener("click", fun
         break;
       case 'rogue': 
       baseStats = {
-        str: 60,  //4
+        str: 50,  //3
         mgk: 20,  //0
-        spd: 60,  //4
+        spd: 70,  //5
         dex: 40,  //2
         res: 20,  //0
         def: 30,  //1
@@ -79,8 +79,8 @@ document.querySelector("#create-character-button").addEventListener("click", fun
         def: 40,  //2
         dur: 100  //5
       }
-      character.ultimateSkill = "Wrath Pulse";
-      normalAtk = "Shield Bash";
+      character.ultimateSkill = "Forbidden Series: Wrath";
+      normalAtk = "Shield Wrath";
       baseStat = baseStats;
         break;
       
@@ -228,14 +228,11 @@ function calcHpMana() {
   let charStatRes = character.stats.res;
   let charStatDef = character.stats.def;
   let charStatStr = character.stats.str;
-
-  let characterHealthFull = 0;
-
-  characterHealthFull = 50 + (charStatEnd * 5) + (charStatDef * 2) + (charStatRes * 2) + (charStatStr*2);
-  
   let charStatMgk = character.stats.mgk;
   let characterManaFull = 0
-  characterManaFull = 40 + (charStatMgk * 5) + (charStatStr * 5);
+  let characterHealthFull = 0;
+  characterHealthFull = 50 + (charStatEnd * 10) + (charStatDef * 2) + (charStatRes * 2) + (charStatStr);
+  characterManaFull = 40 + (charStatMgk * 10) + (charStatStr * 5);
   
   character.hitpoint.hpMax = characterHealthFull;
   character.manapoint.manaMax = characterManaFull;

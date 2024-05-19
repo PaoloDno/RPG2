@@ -1,4 +1,4 @@
-
+//nextStory, loadStory, closeStory
 const gameStory = document.querySelector("#game-story");
 const gameNotif = document.querySelector("#game-notif");
 const notifButton = document.querySelector("#button-notif");
@@ -79,7 +79,6 @@ let storyProgress = [
 ]
 
 function nextStory(storyProgress) {
-  console.log("story progressing")
   loadStory();
   gameStory.style.backgroundImage = `url("${storyProgress.bgimg}"`;
   notifButton.innerText = storyProgress.buttonText;
@@ -182,8 +181,9 @@ function progress10() {
   character.blessingStats.res += recievedBlessing.attributes.res;
   character.blessingStats.dur += recievedBlessing.attributes.dur;
   character.stats = calc(character.baseStats, character.equippedStats, character.blessingStats);
-  saveData();
-  UpdateUIDisplay();
+  saveData(); //character.js
+  UpdateUIDisplay(); 
+  uploadMonitor(gameLocations[0]); //lcoations.js
   showNotif(currentNotifIndex);
 }
 

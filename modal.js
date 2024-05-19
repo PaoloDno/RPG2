@@ -1,3 +1,10 @@
+//showNotif
+//clearNotification
+//addNotification
+//textpanelAppear
+
+
+
 let arrayOfNotif = [
   {type: "start",  content: "reincarnated"}
 ];
@@ -80,6 +87,6 @@ function textpanelAppear(text){
   setTimeout(async () => {
     textpanel.style.display = "none";
     textpanel.innerHTML = "";
-}, 3100);
+}, 3000);
 }
 

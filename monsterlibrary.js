@@ -1,4 +1,4 @@
-
+//calculateMonsterLVL, applyMultiplier, initializeMonster;
 
 
 // Function to calculate monster level
@@ -40,7 +40,7 @@ function initializeMonster(name, floor, section) {
   };
 
   switch (name) {
-      case 'goblin':
+      case 'Goblin':
           baseStats = {
               str: applyMultiplier(30, multiplier),
               mgk: applyMultiplier(20, multiplier),
@@ -50,10 +50,10 @@ function initializeMonster(name, floor, section) {
               res: applyMultiplier(20, multiplier),
               dur: applyMultiplier(50, multiplier)
           };
-          skills = ["clubbing", "goblin time"];
+          skills = ["Clubbing", "Goblin Time"];
           imgs = "./images/battleImgs/goblin.png";
           break;
-      case 'goblin shaman':
+      case 'Goblin Shaman':
           baseStats = {
               str: applyMultiplier(10, multiplier),
               mgk: applyMultiplier(50, multiplier),
@@ -63,10 +63,10 @@ function initializeMonster(name, floor, section) {
               res: applyMultiplier(40, multiplier),
               dur: applyMultiplier(20, multiplier)
           };
-          skills = ["clubbing", "dark ball"];
+          skills = ["Clubbing", "Dark Ball"];
           imgs = "./images/battleImgs/goblinShaman.png";
           break;
-      case 'hob goblin':
+      case 'Hob Goblin':
           baseStats = {
               str: applyMultiplier(60, multiplier),
               mgk: applyMultiplier(20, multiplier),
@@ -76,7 +76,7 @@ function initializeMonster(name, floor, section) {
               res: applyMultiplier(40, multiplier),
               dur: applyMultiplier(60, multiplier)
           };
-          skills = ["trashing", "heavy smash"];
+          skills = ["Trashing", "Heavy Smash"];
           imgs = "./images/battleImgs/goblinHob.png";
           break;
       default:
@@ -100,8 +100,32 @@ function initializeMonster(name, floor, section) {
   return monster;
 }
 
-// Example usage
-//let floor = 1;
-//let section = 1;
-//let selectedEnemyName = monsterNames[Math.floor(Math.random() * monsterNames.length)];  
-//initializeMonster(selectedEnemyName, floor, section);
+const monstersSkillLibrary = [
+  {
+      name: "Goblin",
+      offensiveSkills: ["Clubbing", "Goblin Time"],
+      defensiveSkills: [],
+      display: {
+          avatar: "./images/battleImgs/goblin.png",
+          display: "./images/battleImgs/goblin.png"
+      }
+  },
+  {
+    name: "Goblin Shaman",
+    offensiveSkills: ["Clubbing", "Dark Ball"],
+    defensiveSkills: ["Heal"],
+    display: {
+        avatar: "./images/battleImgs/goblinShaman.png",
+        display: "./images/battleImgs/goblinShaman.png"
+    }
+  },
+  {
+    name: "Hob Goblin",
+    offensiveSkills: ["Trashing", "Heavy Smash"],
+    defensiveSkills: ["Heal"],
+    display: {
+        avatar: "./images/battleImgs/goblinHob.png",
+        display: "./images/battleImgs/goblinHob.png"
+    }
+  },
+]

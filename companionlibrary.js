@@ -30,24 +30,24 @@ function initializeCompany(name, charlvl) {
               mgk: applyMultiplier(50, multiplier), //3
               spd: applyMultiplier(50, multiplier), //3
               dex: applyMultiplier(40, multiplier), //2
-              def: applyMultiplier(10, multiplier), //1
+              def: applyMultiplier(20, multiplier), //1
               res: applyMultiplier(60, multiplier), //4
               dur: applyMultiplier(40, multiplier)  //2
           };
-          skills = ["god blow", "god heal", "god normal"];
+          skills = ["God Blow", "Heal"];
           imgs = "./images/battleImgs/Aqua.png";
           break;
       case 'Goblin Slayer':
           baseStats = {
               str: applyMultiplier(60, multiplier), //4
-              mgk: applyMultiplier(10, multiplier),
+              mgk: applyMultiplier(40, multiplier), //2
               spd: applyMultiplier(80, multiplier), //6
-              dex: applyMultiplier(40, multiplier), //2
+              dex: applyMultiplier(60, multiplier), //4
               def: applyMultiplier(50, multiplier), //3
               res: applyMultiplier(40, multiplier), //2
               dur: applyMultiplier(50, multiplier)  //3
           };
-          skills = ["clubbing", "dark ball"];
+          skills = ["Quick Slash", "Shield Attack", "Backstab"];
           imgs = "./images/battleImgs/Aqua.png";
           break;
       default:
@@ -55,7 +55,7 @@ function initializeCompany(name, charlvl) {
   }
 
   // Calculate hitpoints and manapoints based on stats
-  let hitpoint = ( baseStats.dur * 10 ) + ( baseStats.res * 5 ) + ( baseStats.def * 5 );
+  let hitpoint = ( baseStats.dur * 10 ) + ( baseStats.res * 2 ) + ( baseStats.def * 2 ) + ( baseStats.str);
   let manapoint = ( baseStats.mgk * 10) + ( baseStats.str * 5 );
 
   // Assign values to the monster object
@@ -71,3 +71,15 @@ function initializeCompany(name, charlvl) {
 
   return companion;
 }
+
+const companionSkillLibrary = [
+    {
+        name: "Aqua",
+        offensiveSkills: ["Party Tricks", "Purification", "God Blow"],
+        defensiveSkills: ["Heal"],
+        display: {
+            avatar: "./images/battleImgs/Aqua.png",
+            display: "./images/battleImgs/Aqua.png"
+        }
+    }
+]

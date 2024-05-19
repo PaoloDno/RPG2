@@ -58,4 +58,3 @@ const button4 = document.querySelector("#button-4");
 const inBattleModal = document.querySelector("#inbattle-modal");
 const teamSection = document.querySelector("#teamsection");
 const monsterSection = document.querySelector("#monstersection");
-

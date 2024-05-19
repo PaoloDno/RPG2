@@ -122,12 +122,12 @@ window.addEventListener("load", function() {
                 kills: 0,
                 inCombat: false
             };
-            saveData()
+            saveData() //character.js
             
             console.log(character)
             const targets = document.querySelector("#goddess-welcome-panel");
             targets.style.display = "none";
-            runLoad("characterCreationPanel", "flex");
+            runLoad("characterCreationPanel", "flex"); //character.js
         }
     }
 
