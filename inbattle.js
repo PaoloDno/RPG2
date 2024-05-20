@@ -60,7 +60,7 @@ function initializeBattleDisplay() {
 
   saveCombatData();
   console.log(combat);
-  InbattleSequence();
+  InbattleKeys(gameBattlePhase[6]);
   InbattleSequenceColoredBoxIndicator(arrangeMentsInBattle);
   setTimeout(async () => {
     WhosTurnRightNow(arrangeMentsInBattle);
