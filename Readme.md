@@ -23,7 +23,12 @@ and because I love RPG games
 - Title screen added
 - Storyline planning
 
-### (5/15/2025)
+### (5/15/2024)
 
 - finilized initialization display of stat upon creation of character
 - userpanel finish along with functions for future updates in the display and characters object data.
+
+### (5/20/24)
+- finish fight mechanics
+- added a lttle avatar bat that show sequence of characters turns as a guid for player
+- gonna have a break after this
