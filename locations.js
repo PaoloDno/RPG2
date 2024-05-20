@@ -52,6 +52,10 @@ const gameLocations = [
 //uploadMonitor(gameLocations[0]);
 
 function uploadMonitor(location) {
+  console.log(character);
+  if(arrayOfNotif.length > 0){
+  showNotif(0);
+  }
   console.log("uploading monitor");
   monitorpanel.style.backgroundImage = `url("${location.bgImg}")`;
   button1.innerText = location["button text"][0];

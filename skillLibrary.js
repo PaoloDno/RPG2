@@ -610,10 +610,36 @@ async function displayTextSequence(textArray) {
     combatUpdate();
     updataBattleDisplay();
     
+
+    //this is end of battle
     if(combat.monster.length > 0){
     WhosTurnRightNow(combat.roundIndex);
     } else {
+      
+      
+      character.DungeonFloor += 1;
+
+      let goldGain = 0;
+      let expGain = 0;
+      if(combat.goldGains != 0 && combat.expGains != 0) {
+      for(let i = 0; i < combat.goldGains.length; i++){
+        goldGain +=  parseInt(combat.goldGains, 10);
+      }
+      for(let i = 0; i < combat.expGains.length; i++){
+        expGain +=  parseInt(combat.expGains, 10);
+      }
+      
+      character.gold += goldGain;
+      character.exp += expGain;
+      addNotification("experience", `${expGain}`);
+      addNotification("gold", `${goldGain}`);
+      }
+      UpdateUIDisplay();
       runLoad('inbattle-modal', 'none');
+      saveData();
+
+
+
       return uploadMonitor(gameLocations[4]);
     }
 }

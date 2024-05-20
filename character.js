@@ -323,7 +323,8 @@ function UpdateUIDisplay() {
   equipAttDef.innerText = character.equippedStats.def;
   equipAttRes.innerText = character.equippedStats.res;
   equipAttDur.innerText = character.equippedStats.dur;
-
+  
+  avatarImg.innerHTML = "";
   const CharacterAvatarImg = document.createElement('img');
   let imgsrc = "";
   imgsrc = character.display.avatar;
@@ -335,6 +336,7 @@ function UpdateUIDisplay() {
   calcHpMana();
   initializeHpMana();
   saveData();
+  goldText.innerText = character.gold
   lvlText.innerText = character.lvl;
   hpText.innerText = character.hitpoint.hp;
   hpMaxText.innerText = character.hitpoint.hpMax;
