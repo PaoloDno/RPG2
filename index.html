@@ -18,9 +18,9 @@
       <span class="game-title">Dragon Quest</span>
       <div class="header-buttons">
         <button class="header-button" id="button-5">Character</button>
-        <button class="header-button" id="button-6">Companion</button>
+        <button class="header-button" id="button-6">Party</button>
         <button class="header-button" id="button-7">Items</button>
-        <button class="header-button" id="button-8">Equipment</button>
+        <button class="header-button" id="button-8">Equip</button>
       </div>
     </div>
     <div class="body-content">
@@ -62,7 +62,15 @@
         </div>
       </div>
       <div class="inbattle" id="inbattle-modal">
-        
+        <div class="teamsection" id="teamsection">
+          
+          </div>
+          <div id="battleSeqeunceSlideshowBigger">
+            <div id='current-index'></div>
+            <div id="battleSeqeunceSlideshow"></div>
+          </div>
+          <div class="monstersection" id="monstersection">
+          </div>
       </div>
       <div class="textpanel" id="textpanel">
         text
@@ -153,7 +161,7 @@
           <h1>Hello Adventurer!</h1>
           <p>You are about to be reborn!</p>
           <p>the goddess ask for your name:</p>
-          <input type="text" id="characterNameInput" title="Enter your character's name" class="inputText" />
+          <input type="text" id="characterNameInput" title="Enter your character's name" class="inputText black" />
           <button class="bttn" id="submit-item-button" type="button">Thats my name</button>
           <span id="name-alert"></span>
         </div>

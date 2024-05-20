@@ -2,7 +2,9 @@
 
 function useSkillOnATarget(Skill, UserIndex, TargetIndex, Side, Type){
   let textDexription = [];
-  let user = {
+  let user = {};
+
+  user = {
     username: "",
     hitpoint: 0,
     manapoint: 0,
@@ -18,9 +20,10 @@ function useSkillOnATarget(Skill, UserIndex, TargetIndex, Side, Type){
     def: 0,
     res: 0,
     dur: 0,
-  }
+  };
 
-  let target = {
+  let target = {}
+  target = {
     targetName: "",
     hitpoint: 0,
     manapoint: 0,
@@ -34,7 +37,8 @@ function useSkillOnATarget(Skill, UserIndex, TargetIndex, Side, Type){
     def: 0,
     res: 0,
     dur: 0,
-  }
+  };
+  
   //no need to put in function this is only palce ill use this
   if(Side == "monster" && Type == "damage"){
     user.username = combat.monster[UserIndex];
@@ -193,7 +197,7 @@ function useSkillOnATarget(Skill, UserIndex, TargetIndex, Side, Type){
       type: "magical",
       dmg: (-1 * ((user.dur * 4) + 20)),
       cost: -user.mgk,
-      description: `${user.username} cast Heal on ${user.username}`
+      description: `${user.username} use Harden!`
     },
     {
       name: "Heal",
@@ -249,7 +253,7 @@ function useSkillOnATarget(Skill, UserIndex, TargetIndex, Side, Type){
       type: "magical",
       dmg: user.mgk * 4,
       cost: 0,
-      description: `${user.username} attack ${user.targetName} with a slash so quick`
+      description: `${user.username} attack a mana bullet`
     },
     {
       name: "Knife Stab",
@@ -367,7 +371,7 @@ function useSkillOnATarget(Skill, UserIndex, TargetIndex, Side, Type){
       name: "Heavy Smash",
       action: "damage",
       type: "physical",
-      dmg: (user.dur * 4) + (user.str * 2),
+      dmg: (user.dur * 4) + (user.str * 3),
       cost: user.dur * 3,
       description: "You dont like me when im H---y!"
     },
@@ -432,10 +436,27 @@ function useSkillOnATarget(Skill, UserIndex, TargetIndex, Side, Type){
   }
 
   user.manapoint -= thisturnCost;
-  console.log(textDexription)
+  console.log(textDexription);
+
+  //excess mana and health correction
+  if(user.manapoint > user.manapointMax){
+    user.manapoint = user.manapointMax;
+  }
+  if(user.hitpoint > user.hitpointMax){
+    user.hitpoint = user.hitpointMax
+  }
+  if(target.manapoint > target.manapointMax){
+    target.manapoint = target.manapointMax;
+  }
+  if(target.hitpoint > target.hitpointMax){
+    target.hitpoint = target.hitpointMax
+  }
+
+  
 
   //save dmg calculations
   if(Side == "monster" && Type == "damage"){
+
 
     combat.monstersStats.hitpoint[UserIndex] = user.hitpoint;
     combat.monstersStats.manapoint[UserIndex] = user.manapoint;
@@ -461,7 +482,9 @@ function useSkillOnATarget(Skill, UserIndex, TargetIndex, Side, Type){
     combat.partyStats.res[TargetIndex] = target.res;
     combat.partyStats.dur[TargetIndex] = target.dur;
 
-    console.log("YAS")
+    console.log("YAS");
+
+    
 
   } else if(Side == "monster" && Type == "buff") {
 
@@ -517,7 +540,10 @@ function useSkillOnATarget(Skill, UserIndex, TargetIndex, Side, Type){
     combat.monstersStats.res[TargetIndex] = target.res;
     combat.monstersStats.dur[TargetIndex] = target.dur;
 
-    console.log("YASSS")
+    
+    
+  
+    console.log(combat);
 
   } else if(Side == "party" && Type == "buff") {
 
@@ -549,9 +575,11 @@ function useSkillOnATarget(Skill, UserIndex, TargetIndex, Side, Type){
 
   }
 
-  
-  saveCombatData();
+ 
 
+  
+
+  saveCombatData();
   displayTextSequence(textDexription);
 
   console.log("target.hitpoint", target.hitpoint);
@@ -577,6 +605,94 @@ async function displayTextSequence(textArray) {
 
   // After the sequence, call WhosTurnRightNow if the array is empty
   if (textArray.length === 0) {
+    
+    
+    combatUpdate();
+    updataBattleDisplay();
+    
+    if(combat.monster.length > 0){
     WhosTurnRightNow(combat.roundIndex);
+    } else {
+      runLoad('inbattle-modal', 'none');
+      return uploadMonitor(gameLocations[4]);
+    }
+}
+}
+  //i actually messed up this part either i give monster unique ID with their position or i make some magic on logic here that will work but looks awkward
+  //or i could properly initalized every mosnter stats and put a random unique ID for every slot not using their names anymore using position but that will make me go back to code many lines (not that many)
+  //good thing this is programming and i can use any voodoo as long as they work
+  //after 30 mins i just learned my lazy solutionwill make this easy to work to check if ther still monster to fight mylazyass now will help me chack total monster number
+
+function combatUpdate() {
+  let negativeHitpontNumberIndex;
+  let ZeroesMonster = false;
+  let ZeroesParty = false;
+  let PartyNum = combat.party.length;
+  let EnemyNum = combat.monster.length;
+
+  
+  
+
+  for(let i = 0; i < combat.monster.length; i++){
+    if(combat.monstersStats.hitpoint[i] <= 0){
+      negativeHitpontNumberIndex = i;
+      ZeroesMonster = true;
+    }
   }
+  if(ZeroesMonster) {
+  combat.monster.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.hitpoint.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.hitpointMax.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.manapoint.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.manapointMax.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.str.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.mgk.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.spd.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.dex.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.def.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.res.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.dur.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.imgs.splice(negativeHitpontNumberIndex, 1);
+  combat.monstersStats.lvl.splice(negativeHitpontNumberIndex, 1);
+  combat.inBattle.splice(( PartyNum + negativeHitpontNumberIndex), 1);
+  combat.speedIndex.splice(( PartyNum + negativeHitpontNumberIndex), 1);
+
+  }
+
+
+
+  for(let i = 0; i < combat.party.length; i++){
+    if(combat.partyStats.hitpoint[i] <= 0){
+      negativeHitpontNumberIndex = i;
+      Zeroes = true;
+    }
+  }
+
+  if(ZeroesParty) {
+  combat.party.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.hitpoint.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.hitpointMax.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.manapoint.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.manapointMax.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.str.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.mgk.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.spd.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.dex.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.def.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.res.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.dur.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.imgs.splice(negativeHitpontNumberIndex, 1);
+  combat.partyStats.lvl.splice(negativeHitpontNumberIndex, 1);
+  combat.inBattle.splice(negativeHitpontNumberIndex, 1);
+  combat.speedIndex.splice(negativeHitpontNumberIndex, 1);
+
+  }
+
+  ZeroesMonster = false;
+  ZeroesParty = false;
+  if(combat.monster.length < 0){
+    runLoad('inbattle-modal', 'none');
+    return uploadMonitor(gameLocations[4]);
+  }
+  
 }

@@ -71,7 +71,7 @@ function initializeBattleDisplay() {
 
 
 
-function WhosTurnRightNow(arrangeMentsInBattle){
+function WhosTurnRightNow(arrangeMentsInBattle) {
   if(arrangeMentsInBattle.length < 1){
     arrangeMentsInBattle = everyoneSpeedIndexes(combat.speedIndex);
     combat.roundIndex = arrangeMentsInBattle;
@@ -86,10 +86,10 @@ function WhosTurnRightNow(arrangeMentsInBattle){
   
   
   
-  if (HisTurn == character.name){
+  if (HisTurn == character.name) {
     InbattleSequence();
     console.log(arrangeMentsInBattle);
-  } else if(HisTurn == combat.party[1] || HisTurn == combat.party[2]){
+  } else if (HisTurn == combat.party[1] || HisTurn == combat.party[2]) {
     let newIndex = 0;
     for(let i = 0; i < combat.party.length; i++){
       if(HisTurn = combat.party[i]){
@@ -125,13 +125,15 @@ function automatedAction(HisTurn, Index){
 
 
   for(let i = 0; i < combat.party.length; i++){
-    if(combat.partyStats.hitpoint[i] <=  (combat.partyStats.hitpointMax[i] * 0.4) && companionSkillLibrary[i].defensiveSkills.length != 0){
+    if(combat.partyStats.hitpoint[i] <  (combat.partyStats.hitpointMax[i] * 0.4) && companionSkillLibrary[userSkillIndex].defensiveSkills.length > 0){
+      console.log(whatSkillToUse);
       if(whatSkillToUse < 80){
-        return useSkillOnATarget(companionSkillLibrary[userSkillIndex].defensiveSkills[0], Index, i, "party", "buff");
+        let useSkill = companionSkillLibrary[userSkillIndex].defensiveSkills[0];
+        return useSkillOnATarget( useSkill, Index, i , "party", "buff");
       } else {
         let useSkill = companionSkillLibrary[userSkillIndex].offensiveSkills[Math.floor(Math.random() * companionSkillLibrary[userSkillIndex].offensiveSkills.length)];
         let target = Math.floor(Math.random() * combat.monster.length); 
-        return useSkillOnATarget(useSkill, Index, target, "party", "damage");
+        return useSkillOnATarget( useSkill, Index, target, "party", "damage");
       }
     }
   }
@@ -143,21 +145,25 @@ function automatedActionEnemy( HisTurn, Index){
   let whatSkillToUse = Math.floor(Math.random * 100);
   let userSkillIndex = 0;
   for(let i = 0; i < monstersSkillLibrary.length; i++){
-    if(HisTurn = monstersSkillLibrary[i].name){
+    if(HisTurn === monstersSkillLibrary[i].name){
       userSkillIndex = i;
     }
   }
 
 
   for(let i = 0; i < combat.monster.length; i++){
-    if(combat.monstersStats.hitpoint[i] <=  (combat.monstersStats.hitpointMax[i] * 0.4) && companionSkillLibrary[i].defensiveSkills.length != 0){
+    if(combat.monstersStats.hitpoint[i] <=  (combat.monstersStats.hitpointMax[i] * 0.4) && monstersSkillLibrary[userSkillIndex].defensiveSkills.length < 1 ){
       
       if(whatSkillToUse < 80){
-        return useSkillOnATarget(monstersSkillLibrary[userSkillIndex].defensiveSkills[0], Index, i, "monster", "buff");
+        let useSkill = mosntersSkillLibrary[userSkillIndex].defensiveSkills[0];
+        return useSkillOnATarget( useSkill, Index, i , "monster", "buff");
+
       } else {
         let useSkill = monstersSkillLibrary[userSkillIndex].offensiveSkills[Math.floor(Math.random() * monstersSkillLibrary[userSkillIndex].offensiveSkills.length)];
         let target = Math.floor(Math.random() * combat.party.length); 
+      
         return useSkillOnATarget(useSkill, Index, target, "monster", "damage");
+      
       }
     }
   }
@@ -203,7 +209,7 @@ function InbattleSequenceColoredBoxIndicator(arrangeMentInBattle) {
   //clear bar
   battleSeqeunceSlideshowBigger.innerHTML = "";
   battleSeqeunceSlideshow.innerHTML = "";
-  currentSeq.innerHTML = "";
+  currentSeq.innerHTML = " ";
   
   const colorBoxSequenceIndex = [ "rd", "blu", "yel", "org", "gre", "whi" ]
   let sequenceColoredBox = [];
@@ -462,5 +468,61 @@ function battleChoiceThree() {
 function battleChoiceFour() {
   InbattleKeys(gameBattlePhase[5]);
   useSkillOnATarget("Defend", 0, 0, "party", "buff");
+
+}
+
+function updataBattleDisplay() {
+
+  inBattleModal.innerHTML = "";
+
+  let teamSectionHTML = "";
+  let monsSectionHTML = "";
+  let everyoneSpeedIndex = [];
+
+  for(let i = 0; i < combat.party.length; i++){
+    teamcards = `
+    <div class="inbattle-card">
+      <div class="inbattle-img-card">
+      <img src="${combat.partyStats.imgs[i]}"></img>
+      </div>
+        <p><span class="name-value-inbattle">${combat.party[i]}</span></p>
+        <p>hp:<span class="hpText-inbattle">${combat.partyStats.hitpoint[i]}</span></p>
+        <p>mn:<span class="manaText-inbattle">${combat.partyStats.manapoint[i]}</span></p>
+    </div>
+    `;
+    everyoneSpeedIndex.push({name: `${combat.party[i]}`, spd: combat.partyStats.spd[i]});
+    teamSectionHTML += teamcards;
+  }
+  
+  for(let i = 0; i < combat.monster.length; i++){
+    monscards = `
+    <div class="inbattle-card">
+      <div class="inbattle-img-card">
+      <img src="${combat.monstersStats.imgs[i]}"></img>
+      </div>
+        <p><span class="name-value-inbattle">${combat.monster[i]}</span></p>
+        <p>hp:<span class="hpText-inbattle">${combat.monstersStats.hitpoint[i]}</span></p>
+        <p>mn:<span class="manaText-inbattle">${combat.monstersStats.manapoint[i]}</span></p>
+    </div>
+    `;
+    everyoneSpeedIndex.push({name: `${combat.monster[i]}`, spd: combat.monstersStats.spd[i]});
+    monsSectionHTML += monscards;
+  }
+
+  inBattleModal.innerHTML = `
+  <div class="teamsection" id="teamsection">
+  ${teamSectionHTML}
+  </div>
+  <div id="battleSeqeunceSlideshowBigger">
+    <div id='current-index'></div>
+    <div id="battleSeqeunceSlideshow"></div>
+  </div>
+  <div class="monstersection" id="monstersection">
+  ${monsSectionHTML}
+  </div>
+  `;
+
+   
+  
 
 }

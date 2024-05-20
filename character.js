@@ -1,7 +1,8 @@
 
 let character = JSON.parse(localStorage.getItem("charData"));
 
-
+//library for creating characters stats and skills
+//UI Display
 
 
 document.querySelector("#create-character-button").addEventListener("click", function (e) {
@@ -12,18 +13,18 @@ document.querySelector("#create-character-button").addEventListener("click", fun
   const selectedBlessing = document.getElementById('blessing').value;
 
   let skillset = [...character.skills, selectedSkill];
-  console.log(skillset);
+  //console.log(skillset);
   character.class = selectedJob;
   character.title = "beginner"
   character.skills = skillset;
-  console.log(character);
+  //console.log(character);
   let setStat = character.stats;
   let setbaseStat = character.baseStats;
   let baseStat = [];
   let normalAtk;
-  console.log("1", setbaseStat);
-  console.log("2", setStat);
-  console.log(`basestat${baseStat}`)
+  //console.log("1", setbaseStat);
+  //console.log("2", setStat);
+  //console.log(`basestat${baseStat}`)
 
   if (selectedGender === 'male') {
     switch (selectedJob) {

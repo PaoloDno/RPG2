@@ -47,7 +47,9 @@ function StartExploring() {
       },
       textPrompt: [],
       roundIndex: [],
-      speedIndexes: [],
+      speedIndex: [],
+      goldGains: [],
+      expGains: [],
       floor: 1,
       section: 1,
     };
@@ -84,10 +86,13 @@ function StartExploring() {
     combat.partyStats.dur = [];
     combat.partyStats.imgs = [];
 
-    combat.floor = 1;
-    combat.section = 1;
+    combat.floor = character.DungeonFloor;
+    combat.section = character.DungeonSection;
     combat.inBattle = [];
     combat.roundIndex = [];
+    combat.speedIndexes = [];
+    combat.goldGains = [];
+    combat.expGains = [];
   } 
   
     
@@ -97,6 +102,8 @@ function StartExploring() {
 };
 
 function InitializeCombat(floor) {
+  floor += 1;
+  combat.floor = floor;
   let RandomNumberOfMonster = Math.floor(Math.random() * (15 * floor));
   console.log(RandomNumberOfMonster);
   let numberOfMonster = 0;
@@ -129,6 +136,8 @@ function InitializeCombat(floor) {
     combat.monstersStats.res.push(monster.stats.res);
     combat.monstersStats.dur.push(monster.stats.dur);
     combat.monstersStats.imgs.push(monster.img);
+    combat.goldGains.push(monster.goldGain);
+    combat.expGains.push(monster.expGain);
     // Add other stats similarly
   }
   console.log(combat);

@@ -18,7 +18,8 @@ function initializeMonster(name, floor, section) {
   let imgs;
   let baseStats;
   let skills;
-
+  let goldGained = 0;
+  let experiencedGain = 0;
   let monster = {
     name: "",
     lvl: 0,
@@ -36,7 +37,9 @@ function initializeMonster(name, floor, section) {
         dur: null
     },
     skills: [],
-    img: ""
+    img: "",
+    goldGain : 0,
+    expGain : 0
   };
 
   switch (name) {
@@ -50,6 +53,8 @@ function initializeMonster(name, floor, section) {
               res: applyMultiplier(20, multiplier),
               dur: applyMultiplier(50, multiplier)
           };
+          experiencedGain = lvl * 10;
+          goldGained = lvl * 10;
           skills = ["Clubbing", "Goblin Time"];
           imgs = "./images/battleImgs/goblin.png";
           break;
@@ -63,6 +68,8 @@ function initializeMonster(name, floor, section) {
               res: applyMultiplier(40, multiplier),
               dur: applyMultiplier(20, multiplier)
           };
+          experiencedGain = lvl * 15;
+          goldGained = lvl * 15;
           skills = ["Clubbing", "Dark Ball"];
           imgs = "./images/battleImgs/goblinShaman.png";
           break;
@@ -76,6 +83,8 @@ function initializeMonster(name, floor, section) {
               res: applyMultiplier(40, multiplier),
               dur: applyMultiplier(60, multiplier)
           };
+          experiencedGain = lvl * 30;
+          goldGained = lvl * 5;
           skills = ["Trashing", "Heavy Smash"];
           imgs = "./images/battleImgs/goblinHob.png";
           break;
@@ -97,6 +106,8 @@ function initializeMonster(name, floor, section) {
   monster.stats = baseStats;
   monster.skills = skills;
   monster.img = imgs;
+  monster.goldGain = goldGained;
+  monster.expGain = experiencedGain;
   return monster;
 }
 
@@ -122,7 +133,7 @@ const monstersSkillLibrary = [
   {
     name: "Hob Goblin",
     offensiveSkills: ["Trashing", "Heavy Smash"],
-    defensiveSkills: ["Heal"],
+    defensiveSkills: [],
     display: {
         avatar: "./images/battleImgs/goblinHob.png",
         display: "./images/battleImgs/goblinHob.png"

@@ -119,8 +119,12 @@ window.addEventListener("load", function() {
                 },
                 equipped: [],
                 gold: 0,
+                exp: 0,
+                expToLvl: 500,
                 kills: 0,
-                inCombat: false
+                inCombat: false,
+                DungeonFloor: 1,
+                DungeonSection: 1,
             };
             saveData() //character.js
             

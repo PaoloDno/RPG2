@@ -37,7 +37,7 @@ const gameLocations = [
     text: "*Enter the Dungeon!",
     bgImg: "./images/locations/cave.jpg",
     "button text": ["Explore", "Explore", "Rest", "Exit"],
-    "button functions": [StartExploring, "", "", GoTown]
+    "button functions": [StartExploring, StartExploring, StartExploring, GoTown]
   },
   {
     name: "Deeper Dungeon",
@@ -78,5 +78,6 @@ function GoGuild() {
   uploadMonitor(gameLocations[3]);
 }
 function GoDungeon() {
+  console.log("dungeonn")
   uploadMonitor(gameLocations[4]);
 }

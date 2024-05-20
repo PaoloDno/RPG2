@@ -46,6 +46,9 @@ function showNotif(index){
     case "start":
       text = `You are successfully ${notif.content}`;
       break;
+    case "skill":
+      text = `You learned a skill [${notif.content}]`;
+      break;
     default:
       text = `Unknown notification type: ${notif.type}`;
   };

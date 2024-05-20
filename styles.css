@@ -35,6 +35,9 @@
 .orange{
   color: hsl(36, 89%, 59%);
 }
+.black{
+  color: #111111;
+}
 .green{
   color: rgb(53, 238, 53);
 }
@@ -120,12 +123,18 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .modalpanel, .textpanel {
+  .modalpanel{
     position: absolute;
+    z-index: 30;
     top: 0;
     left: 0;
   }
-
+  .textpanel{
+    position: absolute;
+    z-index: 70;
+    top: 0;
+    left: 0;
+  }
 }
 .body-content .userpanel,
 .body-content .monitorpanel
@@ -296,7 +305,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding: 20px;
-  background-color: #161414;
+  background-color: #161414ab;
   border: 1px solid var(--maincolor);
   border-radius: 15px;
   color: #f1f1f1;
@@ -309,7 +318,7 @@
 }
 .body-content .userpanel .avatarcard{
   position: relative;
-  z-index: 11;
+  z-index: 9;
   .avatar-descriptions{
     display: flex;
     flex-direction: row;
@@ -507,7 +516,7 @@
     width: 80%;
     height: 200px;
     border-radius: 30px;
-    background: linear-gradient(transparent, rgba(165, 11, 11, 0.452), #792a0233, transparent);
+    background: linear-gradient(transparent, rgba(235, 193, 139, 0.4), #5fe2a133, transparent);
     .game-notif{
       padding: 15px;
       width: 100%;
@@ -583,6 +592,14 @@
   display: none;
   flex-direction: row;
   gap: 10px;
+  z-index: 70;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
   background-image: none;
   background-color: #13120d;
   background-position: center;

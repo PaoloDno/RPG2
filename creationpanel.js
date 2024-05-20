@@ -6,7 +6,6 @@ function updateCharacterImage(event) {
   const selectedJob = document.getElementById('job').value; // Corrected 'class' to 'job'
   const selectedSkill = document.getElementById('skill').value;
   const selectedBlessing = document.getElementById('blessing').value;
-  const selectedcharacterNameInput = document.getElementById('characterNameInput').value;
   const characterImageDiv = document.getElementById('img-creation');
   characterImageDiv.innerHTML = ''; // Clear previous image
 
@@ -53,8 +52,6 @@ function updateCharacterImage(event) {
         break;
     }
   }
-  addNotification("skill", `${selectedSkill}`);
-  addNotification("blessing", `${selectedBlessing}`);
   img.src = src;
   img.alt = 'Character Image';
   characterImageDiv.appendChild(img);

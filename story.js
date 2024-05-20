@@ -5,6 +5,9 @@ const notifButton = document.querySelector("#button-notif");
 const notifTitle = document.querySelector("#notif-title");
 const curtain = document.querySelector("#curtain");
 
+
+
+
 let storyProgress = [
   {
     storyTitle: "Prolouge",
@@ -77,6 +80,7 @@ let storyProgress = [
     bgimg: './images/misc/goddess4.jpg'
   }
 ]
+
 
 function nextStory(storyProgress) {
   loadStory();
@@ -165,7 +169,6 @@ function progress10() {
   addNotification("blessing", `${choosenBlessing}`);
   addNotification("companion", "Aqua");
   addNotification("location", "Town");
-  console.log("Receive blessing", recievedBlessing);
   
   gameStory.style.backgroundImage = "none";
   gameStory.style.backgroundColor = `${godimg}`;
