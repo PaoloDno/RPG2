@@ -349,3 +349,49 @@ function UpdateUIDisplay() {
   todisplayArr();
 
 }
+
+function checkLvlUp() {
+
+if(character.exp >= character.expToLvl){
+  character.lvl += 1;
+  character.expToLvl += (90 * 1.1);
+
+  character.baseStats.str = Math.floor((character.baseStats.str * 1.1) + 5);
+  character.baseStats.mgk = Math.floor((character.baseStats.mgk * 1.1) + 5);
+  character.baseStats.spd = Math.floor((character.baseStats.spd * 1.1) + 5);
+  character.baseStats.dex = Math.floor((character.baseStats.dex * 1.1) + 5);
+  character.baseStats.def = Math.floor((character.baseStats.def * 1.1) + 5);
+  character.baseStats.res = Math.floor((character.baseStats.res * 1.1) + 5);
+  character.baseStats.dur = Math.floor((character.baseStats.dur * 1.1) + 5);
+
+  character.blessingStats.str = Math.floor(character.blessingStats.str * 1.05);
+  character.blessingStats.mgk = Math.floor(character.blessingStats.mgk * 1.05);
+  character.blessingStats.spd = Math.floor(character.blessingStats.spd * 1.05);
+  character.blessingStats.dex = Math.floor(character.blessingStats.dex * 1.05);
+  character.blessingStats.def = Math.floor(character.blessingStats.def * 1.05);
+  character.blessingStats.res = Math.floor(character.blessingStats.res * 1.05);
+  character.blessingStats.dur = Math.floor(character.blessingStats.dur * 1.05);
+
+  character.stats = calc(character.baseStats, character.equippedStats, character.blessingStats);
+
+  addNotification("level", `${character.lvl}`);
+
+}
+
+
+
+//checkLVL
+
+
+
+
+//improvebaseStat
+
+//lvl 5
+//add new skill
+
+
+//lvl 10
+
+
+}

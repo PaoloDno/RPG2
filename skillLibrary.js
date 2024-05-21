@@ -634,6 +634,7 @@ async function displayTextSequence(textArray) {
       addNotification("experience", `${expGain}`);
       addNotification("gold", `${goldGain}`);
       }
+      checkLvlUp();
       UpdateUIDisplay();
       runLoad('inbattle-modal', 'none');
       saveData();

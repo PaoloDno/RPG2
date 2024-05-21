@@ -44,7 +44,7 @@ function initializeBattleDisplay() {
   ${teamSectionHTML}
   </div>
   <div id="battleSeqeunceSlideshowBigger">
-    <div id='current-index'></div>
+    <div id="currentIndexAt"></div>
     <div id="battleSeqeunceSlideshow"></div>
   </div>
   <div class="monstersection" id="monstersection">
@@ -205,11 +205,10 @@ function everyoneSpeedIndexes(speedIndex) {
 function InbattleSequenceColoredBoxIndicator(arrangeMentInBattle) {
   const battleSeqeunceSlideshowBigger = document.querySelector("#battleSeqeunceSlideshowBigger");
   const battleSeqeunceSlideshow = document.querySelector("#battleSeqeunceSlideshow");
-  const currentSeq = document.querySelector("#current-index");
   //clear bar
   battleSeqeunceSlideshowBigger.innerHTML = "";
   battleSeqeunceSlideshow.innerHTML = "";
-  currentSeq.innerHTML = " ";
+
   
   const colorBoxSequenceIndex = [ "rd", "blu", "yel", "org", "gre", "whi" ]
   let sequenceColoredBox = [];
@@ -231,7 +230,7 @@ function InbattleSequenceColoredBoxIndicator(arrangeMentInBattle) {
     for(let j = 0; j< sequenceColoredBox.length; j++){
 
       if( arrangeMentsInBattle[0] == sequenceColoredBox[j].name){
-        battleSeqeunceSlideshowBigger.innerHTML = `<div id='current-index'><img class='object-fit' src='${sequenceColoredBox[j].bgImgs}'></img></div>`;
+        battleSeqeunceSlideshowBigger.innerHTML = `<div id='currentIndexAt'><img class='object-fit' src='${sequenceColoredBox[j].bgImgs}'></img></div>`;
       }
 
       if(arrangeMentsInBattle[i] == sequenceColoredBox[j].name){

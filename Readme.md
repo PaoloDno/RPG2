@@ -1,34 +1,67 @@
 # RPG#2
 
-## Overview
+## Introduction
 
-I created this project as practice for my javascript
-and because I love RPG games
+RPG#2 is a role-playing game developed as a practice project to improve my JavaScript skills. This project is inspired by my love for RPG games and aims to provide an engaging and interactive experience.
+
+## Features
+
+- Responsive design
+- LocalStorage for data management
+- Title screen and storyline
+- Character creation with stat initialization
+- User panel with future update capabilities
+- Fight mechanics with turn-based system
+
+## Demo
+
+### UI and Fight Mechanics
+
+![Title Screen]("./images/misc/cover.jpg")
+
+![Title Screen]("./images/misc/screenshot1.jpg")
+*Title screen of RPG#2*
+
+![Character Creation]("./images/misc/screenshot2.jpg")
+*Character creation screen*
+
+![Fight Mechanics]("./images/misc/screenshot3.jpg")
+![Fight Mechanics]("./images/misc/screenshot4.jpg")
+*Fight mechanics in action*
 
 ## Progress Updates
 
-### (5/12/2024)
+### (05/12/2024)
 
-- Initial development of Frontend
-- Responsive
-- Initial planning of scripts
+- Initial development of the frontend.
+- Implemented responsiveness.
+- Started planning the scripts.
 
-### (5/13/2024)
+### (05/13/2024)
 
-- Working on the idea of the script
-- decided that data will be handle on localstorage
+- Worked on the script concept.
+- Decided to handle data using LocalStorage.
 
-### (5/14/2024)
+### (05/14/2024)
 
-- Title screen added
-- Storyline planning
+- Added the title screen.
+- Planned the storyline.
 
-### (5/15/2024)
+### (05/15/2024)
 
-- finilized initialization display of stat upon creation of character
-- userpanel finish along with functions for future updates in the display and characters object data.
+- Finalized the initialization display of stats upon character creation.
+- Finished the user panel along with functions for future updates to the display and character data.
 
-### (5/20/24)
-- finish fight mechanics
-- added a lttle avatar bat that show sequence of characters turns as a guid for player
-- gonna have a break after this
+### (05/20/2024)
+
+- Completed fight mechanics.
+- Added a small avatar bat that shows the sequence of characters' turns as a guide for the player.
+- Taking a break after this.
+
+## Installation
+
+To set up the project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/RPG2.git

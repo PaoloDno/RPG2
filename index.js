@@ -120,7 +120,7 @@ window.addEventListener("load", function() {
                 equipped: [],
                 gold: 0,
                 exp: 0,
-                expToLvl: 500,
+                expToLvl: 100,
                 kills: 0,
                 inCombat: false,
                 DungeonFloor: 1,
