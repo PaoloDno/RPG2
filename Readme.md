@@ -12,21 +12,22 @@ RPG#2 is a role-playing game developed as a practice project to improve my JavaS
 - Character creation with stat initialization
 - User panel with future update capabilities
 - Fight mechanics with turn-based system
+- Art sourced from AI and screenshots from the internet for the time being
 
 ## Demo
 
 ### UI and Fight Mechanics
 
-![Title Screen]("./images/misc/cover.jpg")
+![Title Screen](./images/misc/cover.jpg)
 
-![Title Screen]("./images/misc/screenshot1.jpg")
+![Title Screen](./images/misc/screenshot1.jpg)
 *Title screen of RPG#2*
 
-![Character Creation]("./images/misc/screenshot2.jpg")
+![Character Creation](./images/misc/screenshot2.jpg)
 *Character creation screen*
 
-![Fight Mechanics]("./images/misc/screenshot3.jpg")
-![Fight Mechanics]("./images/misc/screenshot4.jpg")
+![Fight Mechanics](./images/misc/screenshot3.jpg)
+![Fight Mechanics](./images/misc/screenshot4.jpg)
 *Fight mechanics in action*
 
 ## Progress Updates
@@ -58,10 +59,3 @@ RPG#2 is a role-playing game developed as a practice project to improve my JavaS
 - Added a small avatar bat that shows the sequence of characters' turns as a guide for the player.
 - Taking a break after this.
 
-## Installation
-
-To set up the project locally, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/RPG2.git
